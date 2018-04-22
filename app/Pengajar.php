@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Pengajar extends Authenticatable
 {
-    //
+    //model untuk mengontrol data dari table pengajar
+    //extends untuk membuat model ini bisa digunakan untuk authentikasi
     use Notifiable;
 
     protected $table = 'pengajar';
@@ -19,6 +20,7 @@ class Pengajar extends Authenticatable
     protected $hidden = ['password'];
 
     public function kelompok(){
+//          memunculkan jadwal pelatihani yang sesuai dengan relasi pada model ini
         return $this->belongsTo('App\Kelompok_pengajar','id_kelompok_pengajar');
     }
 }

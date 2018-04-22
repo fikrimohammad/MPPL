@@ -13,6 +13,7 @@ class CreateKelompokPengajarTable extends Migration
      */
     public function up()
     {
+//      membuat skema table kelompok_pengajar agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('kelompok_pengajar', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_tempat_penugasan');

@@ -13,6 +13,8 @@ class CreateMateriPelatihanTable extends Migration
      */
     public function up()
     {
+
+//      membuat skema table materi_pelatihan agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('materi_pelatihan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_jadwal_pelatihan');
