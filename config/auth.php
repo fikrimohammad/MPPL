@@ -41,6 +41,16 @@ return [
             'provider' => 'users',
         ],
 
+        'pegawai' => [
+            'driver' => 'session',
+            'provider' => 'pegawai',
+        ],
+
+        'pengajar' => [
+            'driver' => 'session',
+            'provider' => 'pengajar',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
