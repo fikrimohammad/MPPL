@@ -13,6 +13,7 @@ class CreatePegawaiTable extends Migration
      */
     public function up()
     {
+//      membuat skema table pegawai agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('pegawai', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_divisi_pegawai');

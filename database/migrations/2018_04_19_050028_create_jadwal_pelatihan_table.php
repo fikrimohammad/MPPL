@@ -13,6 +13,7 @@ class CreateJadwalPelatihanTable extends Migration
      */
     public function up()
     {
+//      membuat skema table jadwal_pelatihan agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('jadwal_pelatihan', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');

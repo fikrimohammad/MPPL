@@ -13,6 +13,7 @@ class CreateTempatPenugasanTable extends Migration
      */
     public function up()
     {
+//      membuat skema table tempat_penugasan agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('tempat_penugasan', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');

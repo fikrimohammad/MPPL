@@ -13,6 +13,8 @@ class CreateDivisiPegawaiTable extends Migration
      */
     public function up()
     {
+
+//      membuat skema table divisi_pegawai agar bisa dengan mudah membuat table pada setiap pc programmer
         Schema::create('divisi_pegawai', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
