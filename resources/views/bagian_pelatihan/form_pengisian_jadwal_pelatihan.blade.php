@@ -17,68 +17,7 @@
 
 
 
-        <div class="container">
 
-            <h4 class="text-center py-3">FORM PENGISIAN JADWAL PELATIHAN</h4>
-
-            <form action="form_pengisian_jadwal_pelatihan_process.php" method="POST">
-                <div class="row pb-2 justify-content-center">
-                    <div class="col-sm-8 mx-5 text-center">
-                        <div class="row pt-4 pb-2 justify-content-center">
-                            <div class="col-sm-10">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label" for="namaKelompok">Nama Pelatihan</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="namaPelatihan" name="namaPelatihan">    
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row py-2 justify-content-center">
-                            <div class="col-sm-10">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label" for="tgl&waktuPelatihan">Tanggal & Waktu Pelatihan</label>
-                                    <div class="col-sm-5">
-                                        <input type="datetime-local" class="form-control" id="tgl&waktuPelatihan" name="tgl&waktuPelatihan">    
-                                    </div>    
-                                </div>
-                                
-                            </div>    
-                        </div>
-                        <div class="row py-2 justify-content-center">
-                            <div class="col-sm-10">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label" for="tempatPelatihan">Alamat Tempat Pelatihan</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="tempatPelatihan" name="tempatPelatihan">    
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>    
-
-                        <div class="row justify-content-end pt-3">
-                            <div class="col-sm-5">
-                                <div class="row justify-content-end">
-                                    <div class="col-sm-4">
-                                        <button type="submit" class="text-center" id="submit_button">
-                                            <img src="../logo/save.png" alt="Card image cap" style="width: 32px; height: 32px;">
-                                        </button>
-                                        <p class="font-weight-bold text-center">Submit</p>    
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="text-center">
-                                            <a href="../menu_bagian_pelatihan.php"><img src="../logo/window-back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
-                                        </div>
-                                        <p class="font-weight-bold text-center pt-1">Kembali</p>    
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-                    
-            </form>    
-        </div>    
         <footer class="container footer navbar-fixed-bottom" style="height: 100px;">
             <hr class="medium">  
                 <h6 class="py-3">© 2017 Yayasan Indonesia Mengajar. Some Rights Reserved.</h6>

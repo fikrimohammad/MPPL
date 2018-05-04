@@ -38,24 +38,24 @@ class JadwalPelatihanController extends Controller
     {
         request()->validate([
             'nama_pelatihan' => 'required|unique:jadwal_pelatihan,nama',
-            'alamat_tempat' => 'required',
-            'tgl_dan_waktu' => 'required'
+            'tgl_dan_waktu' => 'required',
+            'alamat_tempat' => 'required'
         ], [
             'nama_pelatihan.required' => 'Mohon mengisi nama pelatihan',
             'nama_pelatihan.unique' => 'Mohon maaf, jadwal pelatihan dengan nama '.$request->input('nama_pelatihan').' sudah ada',
-            'alamat_tempat.required' => 'Mohon mengisi alamat tempat pelatihan',
-            'tgl_dan_waktu' => 'Mohon mengisi tanggal dan waktu pelatihan'
+            'tgl_dan_waktu' => 'Mohon mengisi tanggal dan waktu pelatihan',
+            'alamat_tempat.required' => 'Mohon mengisi alamat tempat pelatihan'
         ]);
 
         Jadwal_pelatihan::create([
             'nama' => $request->input('nama_pelatihan'),
-            'alamat_tempat' => $request->input('alamat_tempat_pelatihan'),
-            'tgl_dan_waktu' => $request->input('tgl_dan_waktu_pelatihan')
+            'alamat_tempat' => $request->input('alamat_tempat'),
+            'tgl_dan_waktu' => $request->input('tgl_dan_waktu')
         ]);
 
         $message = "Jadwal pelatihan dengan nama ".$request->input('nama_pelatihan')." berhasil ditambahkan";
 
-        return view('jadwal_pelatihan.index')->with('success', $message);
+        return redirect()->route('jadwal_pelatihan.index')->with('success', $message);
     }
 
     /**
@@ -77,7 +77,7 @@ class JadwalPelatihanController extends Controller
      */
     public function edit(Jadwal_pelatihan $jadwal_pelatihan)
     {
-        return view('jadwal_pelatihan.edit', compact($jadwal_pelatihan));
+        return view('jadwal_pelatihan.edit', compact('jadwal_pelatihan'));
     }
 
     /**
@@ -111,7 +111,7 @@ class JadwalPelatihanController extends Controller
 
         $message = "Jadwal pelatihan dengan nama ".$request->input('nama_pelatihan')." berhasil diubah";
 
-        return view('jadwal_pelatihan.index')->with('success', $message);
+        return redirect()->route('jadwal_pelatihan.index')->with('success', $message);
     }
 
     /**
@@ -122,6 +122,8 @@ class JadwalPelatihanController extends Controller
      */
     public function destroy(Jadwal_pelatihan $jadwal_pelatihan)
     {
-        //
+        $message = "Jadwal pelatihan dengan nama ".$jadwal_pelatihan->nama." berhasil dihapus";
+        $jadwal_pelatihan->delete();
+        return redirect()->route('jadwal_pelatihan.index')->with('success', $message);
     }
 }
