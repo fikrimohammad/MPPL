@@ -1,0 +1,16 @@
+.upload-drop-zone {
+  height: 280px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+.upload-drop-zone {
+  color: #04ABDA;
+  border-style: dashed;
+  border-color: #04ABDA;
+  line-height: 200px;
+  text-align: center
+}
+.upload-drop-zone.drop {
+  color: #4ABDAC;
+  border-color: #4ABDAC;
+}
