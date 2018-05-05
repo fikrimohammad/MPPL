@@ -1,0 +1,116 @@
+/* Button Submit */
+
+.btn-submit { 
+  color: #FFFFFF; 
+  background-color: #53890C; 
+  border-color: #53890C; 
+} 
+ 
+.btn-submit:hover, 
+.btn-submit:focus, 
+.btn-submit:active, 
+.btn-submit.active, 
+.open .dropdown-toggle.btn-submit { 
+  color: #FFFFFF; 
+  background-color: #72A713; 
+  border-color: #53890C; 
+} 
+ 
+.btn-submit:active, 
+.btn-submit.active, 
+.open .dropdown-toggle.btn-submit { 
+  background-image: none; 
+} 
+ 
+.btn-submit.disabled, 
+.btn-submit[disabled], 
+fieldset[disabled] .btn-submit, 
+.btn-submit.disabled:hover, 
+.btn-submit[disabled]:hover, 
+fieldset[disabled] .btn-submit:hover, 
+.btn-submit.disabled:focus, 
+.btn-submit[disabled]:focus, 
+fieldset[disabled] .btn-submit:focus, 
+.btn-submit.disabled:active, 
+.btn-submit[disabled]:active, 
+fieldset[disabled] .btn-submit:active, 
+.btn-submit.disabled.active, 
+.btn-submit[disabled].active, 
+fieldset[disabled] .btn-submit.active { 
+  background-color: #53890C; 
+  border-color: #53890C; 
+} 
+ 
+.btn-submit .badge { 
+  color: #53890C; 
+  background-color: #FFFFFF; 
+}
+
+
+/* Button Cancel */
+
+.btn-cancel { 
+  color: #FFFFFF; 
+  background-color: #EE4023; 
+  border-color: #EE4023; 
+} 
+ 
+.btn-cancel:hover, 
+.btn-cancel:focus, 
+.btn-cancel:active, 
+.btn-cancel.active, 
+.open .dropdown-toggle.btn-cancel { 
+  color: #FFFFFF; 
+  background-color: #FD6204; 
+  border-color: #EE4023; 
+} 
+ 
+.btn-cancel:active, 
+.btn-cancel.active, 
+.open .dropdown-toggle.btn-cancel { 
+  background-image: none; 
+} 
+ 
+.btn-cancel.disabled, 
+.btn-cancel[disabled], 
+fieldset[disabled] .btn-cancel, 
+.btn-cancel.disabled:hover, 
+.btn-cancel[disabled]:hover, 
+fieldset[disabled] .btn-cancel:hover, 
+.btn-cancel.disabled:focus, 
+.btn-cancel[disabled]:focus, 
+fieldset[disabled] .btn-cancel:focus, 
+.btn-cancel.disabled:active, 
+.btn-cancel[disabled]:active, 
+fieldset[disabled] .btn-cancel:active, 
+.btn-cancel.disabled.active, 
+.btn-cancel[disabled].active, 
+fieldset[disabled] .btn-cancel.active { 
+  background-color: #EE4023; 
+  border-color: #EE4023; 
+} 
+ 
+.btn-cancel .badge { 
+  color: #EE4023; 
+  background-color: #FFFFFF;
+
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #EE4023;
+}
+
+a {
+    color: #EE4023;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+    color: #FD6204;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
