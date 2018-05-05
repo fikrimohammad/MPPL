@@ -18,7 +18,7 @@ class CreateJadwalPelatihanTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('alamat_tempat');
-            $table->timestamp('tgl_dan_waktu');
+            $table->dateTime('tgl_dan_waktu');
             $table->timestamps();
         });
     }
