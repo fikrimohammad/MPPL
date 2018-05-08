@@ -106,7 +106,7 @@ class JadwalPelatihanController extends Controller
 
         $jadwal_pelatihan->nama = $request->input('nama_pelatihan');
         $jadwal_pelatihan->alamat_tempat = $request->input('alamat_tempat');
-        $jadwal_pelatihan->tgl_dan_waktu = $request->input('tgl_dan_waktu');
+        $jadwal_pelatihan->tgl_dan_waktu = str_replace('T', ' ',$request->input('tgl_dan_waktu'));
         $jadwal_pelatihan->save();
 
         $message = "Jadwal pelatihan dengan nama ".$request->input('nama_pelatihan')." berhasil diubah";

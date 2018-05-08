@@ -30,33 +30,17 @@
                             <th scope="col"></th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>                 
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Download</button>   
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Download</button>   
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Download</button>   
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach($materi as $item)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{$item->nama}}</td>
+                                    <td>
+                                        <div>
+                                            <a href="download/{{$item->id}}"><button class="btn btn-primary">Download</button></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
                         </tbody>
                     </table>
                     <div class="row justify-content-end pt-3">

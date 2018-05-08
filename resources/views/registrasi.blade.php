@@ -20,7 +20,7 @@
                 
                     <h4 class="text-center py-3">FORM REGISTRASI PENGAJAR</h4>
                     
-                    <form>
+                    <form method="post">
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -31,7 +31,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3" style="margin-right: 46px;" for="pasFoto">Pas Foto (ukuran 3x4)</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" class="form-control-file" id="pasFoto">  
+                                                    <input type="file" class="form-control-file" id="pasFoto" name="pasFoto">
                                                 </div>  
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="namaLengkap">Nama Lengkap</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="namaLengkap" placeholder="">    
+                                                    <input type="text" class="form-control" id="namaLengkap" name="nama" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="alamat">Alamat</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="alamat" placeholder=""> 
+                                                    <input type="text" class="form-control" id="alamat" nama="alamat" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-row align-items-center">
                                                     <label class="col-sm-3" for="agama" style="margin-right: 59px;">Agama</label>
-                                                        <select class="custom-select my-3" id="agama">
+                                                        <select class="custom-select my-3" id="agama" name="agama">
                                                             <option selected></option>
                                                             <option value="Islam">Islam</option>
                                                             <option value="Protestan">Kristen Prostentan</option>
@@ -101,7 +101,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3 col-form-label" for="email">Email</label>
                                                 <div class="col-md-8 offset-md-1">
-                                                    <input type="text" class="form-control" id="email" placeholder="">  
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-row align-items-center">
                                                     <label class="col-sm-3" for="pendidikan" style="margin-right: 9px;">Pendidikan</label>
-                                                        <select class="custom-select col-sm-7 mb-1 mr-sm-0 mb-sm-0" id="agama">
+                                                        <select class="custom-select col-sm-7 mb-1 mr-sm-0 mb-sm-0" id="pendidikan" name="pendidikan">
                                                             <option selected></option>
                                                             <option value="SMA">SMA</option>
                                                             <option value="SMK">SMK</option>
@@ -146,7 +146,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3 col-form-label" for="namaInstitusiPendidikan">Nama Institusi Pendidikan</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="">    
+                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="" name="namaInstitusiPendidikan">
                                                 </div>  
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3" for="CV">Curriculum Vitae (CV)</label>
                                                 <div class="col-md-8">
-                                                    <input type="file" class="form-control-file" id="CV">   
+                                                    <input type="file" class="form-control-file" id="CV" name="cv">
                                                 </div>  
                                         </div>
                                     </div>

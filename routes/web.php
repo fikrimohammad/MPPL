@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('pengajar/materi_pelatihan','PengajarController@materi_pelatihan');
+Route::get('pengajar/materi_pelatihan/{id}/download','MateriPelatihanController@download_materi');
+Route::resource('pengajar','PengajarController');
+
 Route::resource('jadwal_pelatihan','JadwalPelatihanController');
+Route::resource('manage/materi_pelatihan','MateriPelatihanController');
