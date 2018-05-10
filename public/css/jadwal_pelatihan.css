@@ -1,0 +1,18 @@
+table.table-hover{
+    border-color: #04ABDA;
+    color: #04ABDA;
+    margin-top:20px;
+  }
+table.table-hover > thead > tr >th{
+    border-color: #04ABDA;
+}
+table.table-hover> tbody > tr > th{
+   border-color: #04ABDA;
+}
+table.table-hover> tbody > tr > td{
+   border-color: #04ABDA;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #04ABDA;
+  color: white;
+}
