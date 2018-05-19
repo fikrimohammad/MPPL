@@ -8,9 +8,6 @@ class Jadwal_pelatihan extends Model
 {
     // model untuk mengontrol data dari table divisi_pegawai
     protected $table = 'jadwal_pelatihan';
-    protected $casts = [
-        'tgl_dan_waktu' => 'datetime'
-    ];
     protected $fillable = [
         'nama', 'alamat_tempat', 'tgl_dan_waktu'
     ];

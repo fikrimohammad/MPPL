@@ -14,8 +14,9 @@ class JadwalPelatihanController extends Controller
      */
     public function index()
     {
+        $i = 0;
         $jadwal_pelatihan = Jadwal_pelatihan::orderBy('nama', 'asc')->get();
-        return view('jadwal_pelatihan.index')->with('jadwal_pelatihan', $jadwal_pelatihan);
+        return view('jadwal_pelatihan.index', compact('jadwal_pelatihan'))->with('i', $i);
     }
 
     /**
@@ -43,7 +44,7 @@ class JadwalPelatihanController extends Controller
         ], [
             'nama_pelatihan.required' => 'Mohon mengisi nama pelatihan',
             'nama_pelatihan.unique' => 'Mohon maaf, jadwal pelatihan dengan nama '.$request->input('nama_pelatihan').' sudah ada',
-            'tgl_dan_waktu' => 'Mohon mengisi tanggal dan waktu pelatihan',
+            'tgl_dan_waktu.required' => 'Mohon mengisi tanggal dan waktu pelatihan',
             'alamat_tempat.required' => 'Mohon mengisi alamat tempat pelatihan'
         ]);
 
@@ -101,12 +102,12 @@ class JadwalPelatihanController extends Controller
         ], [
             'nama_pelatihan.required' => 'Mohon mengisi nama pelatihan',
             'alamat_tempat.required' => 'Mohon mengisi alamat tempat pelatihan',
-            'tgl_dan_waktu' => 'Mohon mengisi tanggal dan waktu pelatihan'
+            'tgl_dan_waktu.required' => 'Mohon mengisi tanggal dan waktu pelatihan'
         ]);
 
         $jadwal_pelatihan->nama = $request->input('nama_pelatihan');
         $jadwal_pelatihan->alamat_tempat = $request->input('alamat_tempat');
-        $jadwal_pelatihan->tgl_dan_waktu = str_replace('T', ' ',$request->input('tgl_dan_waktu'));
+        $jadwal_pelatihan->tgl_dan_waktu = str_replace('T', ' ', $request->input('tgl_dan_waktu'));
         $jadwal_pelatihan->save();
 
         $message = "Jadwal pelatihan dengan nama ".$request->input('nama_pelatihan')." berhasil diubah";

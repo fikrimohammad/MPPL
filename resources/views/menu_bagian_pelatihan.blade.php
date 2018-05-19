@@ -23,20 +23,20 @@
 			<div class="row py-5 justify-content-center">
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="bagian_pelatihan/jadwal_pelatihan.php"><img class="card-img-top" src="logo/calendar.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>						
+						<a href="{{ route('jadwal_pelatihan.index') }}"><img class="card-img-top" src="logo/calendar.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 
 					<h4 class="text-center pt-4">Jadwal Pelatihan</h4>
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="bagian_pelatihan/materi_pelatihan_download.php"><img class="card-img-top" src="logo/folder.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>	
+						<a href="{{ route('materi_pelatihan.index') }}"><img class="card-img-top" src="logo/folder.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Materi Pelatihan</h4>
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="login_page_pegawai.php"><img class="card-img-top" src="logo/window-back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>	
+						<a href="login_page_pegawai.php"><img class="card-img-top" src="logo/back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Keluar</h4>
 				</div>				

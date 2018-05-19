@@ -4,9 +4,25 @@
 
     <h4 class="text-center py-3">FORM PENGISIAN JADWAL PELATIHAN</h4>
 
-    <form action="{{ route('jadwal_pelatihan.store') }}" method="POST">
+    <form action="{{ route('jadwal_pelatihan.update', $jadwal_pelatihan->id) }}" method="POST">
         {{ csrf_field()  }}
         @method('PUT')
+
+        @if ($message = Session::get('failed'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Whoops!</strong> {{ $message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @foreach ($errors->all() as $message)
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Whoops!</strong> {{ $message }}
+            </div>
+        @endforeach
 
         <div class="row pb-2 justify-content-center">
             <div class="col-sm-8 mx-5 text-center">
@@ -47,13 +63,13 @@
                         <div class="row justify-content-end">
                             <div class="col-sm-4">
                                 <button type="submit" class="text-center" id="submit_button">
-                                    <img src="../logo/save.png" alt="Card image cap" style="width: 32px; height: 32px;">
+                                    <img src="{{ asset('logo/save.png') }}" alt="Card image cap" style="width: 32px; height: 32px;">
                                 </button>
                                 <p class="font-weight-bold text-center">Submit</p>
                             </div>
                             <div class="col-sm-3">
                                 <div class="text-center">
-                                    <a href="{{ route('jadwal_pelatihan.index') }}"><img src="../logo/window-back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                    <a href="{{ route('jadwal_pelatihan.index') }}"><img src="{{ asset('logo/back-button.png') }}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                 </div>
                                 <p class="font-weight-bold text-center pt-1">Kembali</p>
                             </div>
