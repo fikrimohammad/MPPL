@@ -20,47 +20,6 @@ class PengajarController extends Controller
         return view('menu_pengajar');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('registrasi');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-        $pengajar = New Pengajar;
-        $pengajar->nama = $request->input('nama');
-        $pengajar->tempat_lahir = $request->input('tempat_lahir');
-        $pengajar->tanggal_lahir = $request->input('tanggal_lahir');
-//        tempat tanggal lahir belum ada
-        $pengajar->alamat = $request->input('alamat');
-        $pengajar->agama = $request->input('agama');
-        $pengajar->no_hp = $request->input('no_hp');
-//        no hp blom ada
-        $pengajar->email = $request->input('pengajar');
-        $pengajar->password = Hash::make($request->input('password'));
-//        password belum ada
-        $pengajar->jenjang_pendidikan_terakhir = $request->input('pendidikan');
-        $pengajar->nama_institusi_pendidikan = $request->input('namaInstitusiPendidikan');
-        $pengajar->lokasi_penyimpanan_cv = $this->upload($request,'cv');
-        $pengajar->lokasi_penyimpanan_pas_foto = $this->upload($request,'pasFoto');
-        $pengajar->nomor_pendaftaran = random_int(1000,9999);
-
-        return view('menu_pengajar');
-
-    }
 
     /**
      * Display the specified resource.
@@ -118,8 +77,8 @@ class PengajarController extends Controller
             Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_pas_foto);
             $pengajar->lokasi_penyimpanan_pas_foto = $this->upload($request,'pasFoto');
         }
-
-        $pengajar->nomor_pendaftaran = random_int(1000,9999);
+        $pengajar->save();
+        return $this->index();
     }
 
     /**

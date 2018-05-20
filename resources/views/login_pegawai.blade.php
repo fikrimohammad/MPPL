@@ -115,15 +115,15 @@
                     
                     <h4 class="text-center py-3">HALAMAN LOGIN BAGIAN PELATIHAN</h4>
                     
-                    <form>
+                    <form method="post" action="/pegawai/login">
                         <div class="row justify-content-center">
                             <div class="col-sm-6">
                                 <div class="row py-2">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label" for="emailPelatihan">Email</label>
+                                                <label class="col-sm-3 col-form-label" for="email">Email</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="emailPelatihan" placeholder="">    
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -131,14 +131,15 @@
                                 <div class="row justify-content-center py-2">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                                <label class="col-md-3 col-form-label" for="passwordPelatihan">Password</label>
+                                                <label class="col-md-3 col-form-label" for="password">Password</label>
                                                 <div class="col-md-8 offset-md-1">
-                                                    <input type="text" class="form-control" id="passwordPelatihan" placeholder=""> 
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
                                 </div> 
                             </div>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="row justify-content-center pt-3 pb-5">
                             <div>
@@ -147,7 +148,7 @@
                             <div class="pl-2">
                                 <a class="btn btn-cancel" href="../index.html" role="button">Kembali Ke Beranda</a>   
                             </div>
-                        </div>  
+                        </div>
                     </form>
                 </div>
             </div>    
