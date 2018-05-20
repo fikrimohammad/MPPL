@@ -14,8 +14,9 @@ class TempatPenugasanController extends Controller
      */
     public function index()
     {
+        $i = 0;
         $tempat_penugasan = Tempat_penugasan::orderBy('nama', 'asc')->get();
-        return view('tempat_penugasan.index')->with('tempat_penugasan', $tempat_penugasan);
+        return view('tempat_penugasan.index', compact('tempat_penugasan'))->with('i', $i);
     }
 
     /**
@@ -99,13 +100,12 @@ class TempatPenugasanController extends Controller
             return view('tempat_penugasan.edit')->with('failed', $message);
         }
         request()->validate([
-            'nama' => 'required|unique:tempat_penugasan,nama',
+            'nama' => 'required',
             'alamat' => 'required',
             'nama_contact_person' => 'required',
             'no_hp_contact_person' => 'required'
         ], [
             'nama.required' => 'Mohon mengisi nama tempat penugasan',
-            'nama.unique' => 'Mohon maaf, tempat penugasan dengan nama '.$request->input('nama').' sudah ada',
             'alamat.required' => 'Mohon mengisi alamat tempat penugasan',
             'nama_contact_person.required' => 'Mohon mengisi nama contact person tempat penugasan',
             'no_hp_contact_person.required' => 'Mohon mengisi no hp contact person tempat penugasan'

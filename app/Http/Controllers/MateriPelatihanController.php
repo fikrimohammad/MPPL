@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jadwal_pelatihan;
 use App\Materi_pelatihan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +17,6 @@ class MateriPelatihanController extends Controller
      */
     public function index()
     {
-        //
         $materi_pelatihan = Materi_pelatihan::all();
         return view('bagian_pelatihan.materi_pelatihan')->with('materi_pelatihan',$materi_pelatihan);
     }
@@ -28,7 +29,8 @@ class MateriPelatihanController extends Controller
     public function create()
     {
         //pegawai mengupload materi baru --> perbaiki form!
-        return view('bagian_pelatihan.upload_materi_pelatihan');
+        $jadwal_pelatihan = Jadwal_pelatihan::all();
+        return view('bagian_pelatihan.upload_materi_pelatihan', compact('jadwal_pelatihan'));
     }
 
     /**
@@ -39,10 +41,9 @@ class MateriPelatihanController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $materi_pelatihan = New Materi_pelatihan;
+        $materi_pelatihan->nama = $request->input('nama_materi_pelatihan');
         $materi_pelatihan->id_jadwal_pelatihan = $request->input('id_jadwal_pelatihan');
-        $materi_pelatihan->nama = $request->input('nama');
         if($request->hasFile('materi_pelatihan')){
             $materi_pelatihan->lokasi_penyimpanan = $this->upload($request);
         }
