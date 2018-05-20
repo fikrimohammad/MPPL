@@ -50,7 +50,7 @@ class PengajarController extends Controller
         $pengajar->no_hp = $request->input('no_hp');
 //        no hp blom ada
         $pengajar->email = $request->input('pengajar');
-        $pengajar->password = bcrypt($request->input('password'));
+        $pengajar->password = Hash::make($request->input('password'));
 //        password belum ada
         $pengajar->jenjang_pendidikan_terakhir = $request->input('pendidikan');
         $pengajar->nama_institusi_pendidikan = $request->input('namaInstitusiPendidikan');

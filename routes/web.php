@@ -34,3 +34,23 @@ Route::resource('manage/kelompok_pengajar','KelompokPengajarController');
 Route::resource('manage/materi_pelatihan','MateriPelatihanController');
 Route::get('/ajax_kp1', 'KelompokPengajarController@select_pengajar_1');
 Route::get('/ajax_kp2', 'KelompokPengajarController@select_pengajar_2');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Auth pengajar
+$this->get('login', 'AuthPengajar\LoginController@showLoginForm')->name('login');
+$this->post('login', 'AuthPengajar\LoginController@login');
+$this->post('logout', 'AuthPengajar\LoginController@logout')->name('logout');
+
+// Registration Routes...
+
+// Password Reset Routes...
+$this->get('password/reset', 'AuthPengajar\ForgotPasswordController@showLinkRequestForm');
+$this->post('password/email', 'AuthPengajar\ForgotPasswordController@sendResetLinkEmail');
+$this->get('password/reset/{token}', 'AuthPengajar\ResetPasswordController@showResetForm');
+$this->post('password/reset', 'AuthPengajar\ResetPasswordController@reset');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
