@@ -23,14 +23,14 @@
 			<div class="row py-5 justify-content-center">
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="bagian_rekrutmen/input_data_pengajar_lulus.php"><img class="card-img-top" src="logo/exam.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="pengajar"><img class="card-img-top" src="logo/exam.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 							
 					</div>
 					<h4 class="text-center pt-4">Data Pengajar Lulus</h4>
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="login_page_pegawai.php"><img class="card-img-top" src="logo/back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="{{ route('logout') }}"><img class="card-img-top" src="logo/back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Keluar</h4>
 				</div>								

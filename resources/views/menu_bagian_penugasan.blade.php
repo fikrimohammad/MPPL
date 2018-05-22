@@ -23,14 +23,14 @@
 			<div class="row py-5 justify-content-center">
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="bagian_penugasan/kelompok_pengajar.php"><img class="card-img-top" src="logo/group.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="kelompok_pengajar"><img class="card-img-top" src="logo/group.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 							
 					</div>
 					<h4 class="text-center pt-4">Kelompok Pengajar</h4>
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="bagian_penugasan/tempat_penugasan.php"><img class="card-img-top" src="logo/planet-earth.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="tempat_penugasan"><img class="card-img-top" src="logo/planet-earth.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 						
 					</div>
 					
@@ -38,7 +38,7 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="login_page_pegawai.php"><img class="card-img-top" src="logo/window-back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="{{ route('logout') }}"><img class="card-img-top" src="logo/window-back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 							
 					</div>
 					<h4 class="text-center pt-4">Keluar</h4>

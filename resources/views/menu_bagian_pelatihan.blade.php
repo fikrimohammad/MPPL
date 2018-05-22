@@ -30,13 +30,13 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="{{ route('materi_pelatihan.index') }}"><img class="card-img-top" src="logo/folder.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="materi_pelatihan"><img class="card-img-top" src="logo/folder.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Materi Pelatihan</h4>
 				</div>
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="login_page_pegawai.php"><img class="card-img-top" src="logo/back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="{{route('logout')}}"><img class="card-img-top" src="logo/back-button.png" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Keluar</h4>
 				</div>				

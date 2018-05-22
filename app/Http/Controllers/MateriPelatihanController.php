@@ -15,6 +15,11 @@ class MateriPelatihanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('pegawai:2')->except('logout');
+    }
+
     public function index()
     {
         $materi_pelatihan = Materi_pelatihan::all();

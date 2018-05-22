@@ -17,25 +17,13 @@ Route::get('/', function () {
 
 Route::get('pengajar/materi_pelatihan','PengajarController@materi_pelatihan');
 Route::get('pengajar/materi_pelatihan/{id}/download','MateriPelatihanController@download_materi');
-Route::resource('pengajar','PengajarController');
-
-
-Route::get('menu-bagian-pelatihan', function (){
-   return view('menu_bagian_pelatihan');
-});
-
-Route::get('menu-bagian-penugasan', function (){
-    return view('menu_bagian_penugasan');
-});
 
 Route::resource('manage/jadwal_pelatihan','JadwalPelatihanController');
-Route::resource('manage/tempat_penugasan','TempatPenugasanController');
-Route::resource('manage/kelompok_pengajar','KelompokPengajarController');
 Route::resource('manage/materi_pelatihan','MateriPelatihanController');
 Route::get('/ajax_kp1', 'KelompokPengajarController@select_pengajar_1');
 Route::get('/ajax_kp2', 'KelompokPengajarController@select_pengajar_2');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -54,3 +42,30 @@ $this->post('password/reset', 'AuthPengajar\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::prefix('pegawai')->group(function (){
+    //Auth Pegawai
+    Route::get('login', 'AuthPegawai\LoginControllerPegawai@showLoginForm')->name('login');
+    Route::post('login', 'AuthPegawai\LoginControllerPegawai@login');
+    Route::get('logout', 'AuthPegawai\LoginControllerPegawai@logout')->name('logout');
+
+// Password Reset Routes...
+    Route::get('password/reset', 'AuthPengajar\ForgotPasswordControllerPegawai@showLinkRequestForm');
+    Route::post('password/email', 'AuthPengajar\ForgotPasswordControllerPegawai@sendResetLinkEmail');
+    Route::get('password/reset/{token}', 'AuthPengajar\ResetPasswordControllerPegawai@showResetForm');
+    Route::post('password/reset', 'AuthPengajar\ResetPasswordControllerPegawai@reset');
+
+//menu redirect pegawai
+    Route::get('rekrutmen','PegawaiController@menuRekrutmen')->name('rekrutmen');
+    Route::get('pelatihan','PegawaiController@menuPelatihan')->name('pelatihan');
+    Route::get('penugasan','PegawaiController@menuPenempatan')->name('penempatan');
+
+    Route::get('home/{pegawai}','PegawaiController@home');
+
+    Route::resource('materi_pelatihan','MateriPelatihanController');
+    Route::resource('kelompok_pengajar','KelompokPengajarController');
+    Route::resource('tempat_penugasan','TempatPenugasanController');
+    Route::resource('pengajar','PengajarController')->except([
+        'create', 'store'
+    ]);
+
+});

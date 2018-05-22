@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\AuthPengajar;
-
+namespace App\Http\Controllers\AuthPegawai;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginControllerPegawai extends Controller
@@ -37,8 +38,18 @@ class LoginControllerPegawai extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function authenticated(Request $request, $user)
+    {
+        //
+        return redirect('/pegawai/home/'.$user->id);
+    }
+
     protected function guard()
     {
         return Auth::guard('pegawai');
+    }
+
+    protected function showLoginForm(){
+        return view('login_pegawai');
     }
 }

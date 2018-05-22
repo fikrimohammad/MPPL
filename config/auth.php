@@ -79,6 +79,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'pegawai' => [
+            'driver' => 'eloquent',
+            'model' => App\Pegawai::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
