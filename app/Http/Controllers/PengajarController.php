@@ -94,13 +94,21 @@ class PengajarController extends Controller
         return true;
     }
 
-    public function viewSeleksi(){
-        $pengajar = Pengajar::where('status_kelulusan',1)->get();
-        return view('pengumuman_seleksi')->with('pengajar',$pengajar);
+    public function viewSeleksi(Pengajar $pengajar){
+        if($pengajar->status_kelulusan == 1){
+            return view('pengajar.lulus');
+        }
+        else{
+            return view('pengajar.tidak_lulus');
+        }
     }
 
-    public function kelompok(){
-        return view('kelompok_pengajar');
+    public function kelompok(Pengajar $pengajar){
+        return view('pengajar.kelompok_pengajar')->with('pengajar',$pengajar);
+    }
+
+    public function tempatPenugasan(Pengajar $pengajar){
+        return view('pengajar.tempat_penugasan')->with('pengajar',$pengajar);
     }
 
     public function materi_pelatihan(){

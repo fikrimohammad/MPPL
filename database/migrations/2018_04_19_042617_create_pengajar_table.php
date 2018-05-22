@@ -25,6 +25,7 @@ class CreatePengajarTable extends Migration
             $table->string('agama');
             $table->string('no_hp');
             $table->string('email');
+            $table->string('jenis_kelamin');
             $table->string('password');
             $table->string('jenjang_pendidikan_terakhir');
             $table->string('nama_institusi_pendidikan');

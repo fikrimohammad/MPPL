@@ -20,7 +20,7 @@
                 
                     <h4 class="text-center py-3">FORM REGISTRASI PENGAJAR</h4>
                     
-                    <form method="post">
+                    <form method="post" action="{{route('registerPengajar')}}">
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -31,7 +31,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3" style="margin-right: 46px;" for="pasFoto">Pas Foto (ukuran 3x4)</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" class="form-control-file" id="pasFoto" name="pasFoto">
+                                                    <input type="file" class="form-control-file" id="pasFoto" name="photo">
                                                 </div>  
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="namaLengkap">Nama Lengkap</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="namaLengkap" name="nama" placeholder="">
+                                                    <input type="text" class="form-control" id="namaLengkap" name="name" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -55,15 +55,35 @@
                                             <div class="col-sm-8" style="padding-left: 63px;">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelaminPria" value="Pria" checked>
+                                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenisKelaminPria" value="Pria" checked>
                                                         Pria
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelaminWanita" value="Wanita">
+                                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenisKelaminWanita" value="Wanita">
                                                         Wanita
                                                     </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center py-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="tempat_lahir">Tempat Lahir</label>
+                                                <div class="col-md-8 offset-md-1">
+                                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center py-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="tanggal_lahir">Tanggal Lahir</label>
+                                                <div class="col-md-8 offset-md-1">
+                                                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +95,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="alamat">Alamat</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="alamat" nama="alamat" placeholder="">
+                                                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -112,7 +132,7 @@
                                                 <label class="col-sm-3 col-form-label" for="noHandphone">Nomor Handphone</label>
                                                 <div class="input-group col-sm-8 offset-sm-1">
                                                     <span class="input-group-addon" id="noHandphone">+62</span>
-                                                    <input type="text" class="form-control" id="noHandphone" placeholder="">
+                                                    <input type="text" class="form-control" id="noHandphone" name="no_hp" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -146,7 +166,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3 col-form-label" for="namaInstitusiPendidikan">Nama Institusi Pendidikan</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="" name="namaInstitusiPendidikan">
+                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="" name="nama_institusi_pendidikan">
                                                 </div>  
                                         </div>
                                     </div>

@@ -83,6 +83,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Pegawai::class,
         ],
+        'pengajar' => [
+            'driver' => 'eloquent',
+            'model' => App\Pengajar::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',

@@ -1,7 +1,6 @@
 <?php
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\AuthPengajar;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Pengajar;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
@@ -65,8 +64,9 @@ class RegisterController extends Controller
             'tgl_lahir' => $data['tgl_lahir'],
             'alamat' => $data['alamat'],
             'agama' => $data['agama'],
+            'jenis_kelamin' => $data['jenis_kelamin'],
             'no_hp' => $data['no_hp'],
-            'jenjang_pendidikan_terakhir' => $data['jenjang_pendidikan_terakhir']
+            'jenjang_pendidikan_terakhir' => $data['pendidikan']
             ,'nama_institusi_pendidikan' => $data['nama_institusi_pendidikan'],
             'lokasi_penyimpanan_cv' => $this->upload($data['cv']),
             'lokasi_penyimpanan_pas_foto' => $this->upload($data['photo']),
@@ -87,4 +87,10 @@ class RegisterController extends Controller
     {
         return Auth::guard('pengajar');
     }
+
+    public function showRegistrationForm()
+    {
+        return view('registrasi');
+    }
+
 }

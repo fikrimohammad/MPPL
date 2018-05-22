@@ -28,7 +28,7 @@
                             <p>Nama Kelompok : Kelompok KP01</p>
                         </div>
                         <div class="col justify-content-end">
-                            <p>Tempat Penugasan : <a href="tempat_penugasan.php">SMA 1 Pulo Aceh</a></p>
+                            <p>Tempat Penugasan : <a href="kelompok_pengajar/penugasan">SMA 1 Pulo Aceh</a></p>
                         </div>
                     </div>
                     <table class="table table-hover font-weight-bold">

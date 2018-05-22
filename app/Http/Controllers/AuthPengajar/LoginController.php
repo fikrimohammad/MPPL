@@ -41,4 +41,8 @@ class LoginController extends Controller
     {
         return Auth::guard('pengajar');
     }
+
+    protected function showLoginForm(){
+        return view('login');
+    }
 }
