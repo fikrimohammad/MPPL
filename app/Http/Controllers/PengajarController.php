@@ -21,6 +21,12 @@ class PengajarController extends Controller
         return view('menu_pengajar');
     }
 
+    public function index_rekrutmen()
+    {
+        //
+        $pengajar = Pengajar::all();
+        return view('bagian_rekrutmen.input_data_pengajar_lulus')->with('pengajar', $pengajar);
+    }
 
     /**
      * Display the specified resource.

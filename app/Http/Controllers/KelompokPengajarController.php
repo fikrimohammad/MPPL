@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelompok_pengajar;
 use App\Pengajar;
+use App\Tempat_penugasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -29,7 +30,8 @@ class KelompokPengajarController extends Controller
     public function create()
     {
         $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', NULL], ['status_kelulusan', '=', 1]])->get();
-        return view('kelompok_pengajar.create', compact('pengajar'));
+        $tempat_penugasan = Tempat_penugasan::all();
+        return view('kelompok_pengajar.create', compact('pengajar', 'tempat_penugasan'));
     }
 
     /**

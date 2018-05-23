@@ -1,24 +1,5 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../css/input_data_pengajar_lulus.css">
-        <link rel="stylesheet" type="text/css" href="../css/submit_button.css">
-</head>
-<body>
-    
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-auto">
-                    <img src="../logo/logo.png" id="logo_IM">
-                </div>
-            </div>
-            <hr class="medium">
-        </div>
-
-
-
+@extends('layouts.app')
+@section('content')
         <div class="container">
 
             <h4 class="text-center py-3">LIST PENGAJAR LULUS</h4>
@@ -35,40 +16,26 @@
                                 <th scope="col">Option</th>
                             </thead>
                             <tbody>
+                            @foreach($pengajar as $peng)
                                 <tr>
-                                    <td scope="row">1</td>
-                                    <td>joko</td>
+                                    <th scope="row">{{ $loop->count }}</th>
+                                    <td>PENG000{{ $peng->id }}</td>
+                                    <td>{{ $peng->nama }}</td>
                                     <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="" value="L">
-                                            <span class="custom-control-indicator"></span>
-                                        </label>
+                                        <a href="{{ route('pengajar.edit', $peng->id) }}">Edit</a> |
+                                        <a href="#" onclick="event.preventDefault();
+										document.getElementById('destroy-form').submit();">
+                                            Delete
+                                            <form id="destroy-form" action="{{ route('pengajar.destroy', $peng->id) }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                                @method('DELETE')
+                                            </form>
+
+                                        </a> |
+                                        <a href="{{ route('pengajar.show', $peng->id) }}">Show</a>
                                     </td>
-                                    <td><a href="">Delete</a> | <a href="edit_data_pengajar.php">Edit</a> | <a href="detail_pengajar.php">Show</a></td>
                                 </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>bambang</td>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="" value="L">
-                                            <span class="custom-control-indicator"></span>
-                                        </label>
-                                    </td>
-                                    <td><a href="">Delete</a> | <a href="edit_data_pengajar.php">Edit</a> | <a href="">Show</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">3</td>
-                                    <td>irvan</td>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="" value="L">
-                                            <span class="custom-control-indicator"></span>
-                                        </label>
-                                    </td>
-                                    <td><a href="">Delete</a> | <a href="edit_data_pengajar.php">Edit</a> | <a href="">Show</a></td>
-                                </tr>
-                              
+                            @endforeach
                             </tbody>
                         </table>
                         <div class="row justify-content-end pt-3">
@@ -76,13 +43,13 @@
                                 <div class="row justify-content-end">
                                     <div class="col-sm-4">
                                         <button type="submit" class="text-center" id="submit_button">
-                                            <img src="../logo/save.png" alt="Card image cap" style="width: 32px; height: 32px;">
+                                            <img src="{{asset('/logo/save.png')}}" alt="Card image cap" style="width: 32px; height: 32px;">
                                         </button>
                                         <p class="font-weight-bold text-center">Simpan</p>    
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="text-center">
-                                            <a href="../menu_bagian_rekrutmen.php"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>  
+                                            <a href="{{url('pegawai/rekrutmen')}}"><img src="{{asset('/logo/back-button.png')}}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                         </div>
                                         <p class="font-weight-bold text-center pt-1">Kembali</p>    
                                     </div>    
@@ -93,15 +60,4 @@
                 </div>
             </form>
         </div>
-
-        <div class="container footer navbar-fixed-bottom">
-            <hr class="medium">  
-                <h6 class="py-3">© 2017 Yayasan Indonesia Mengajar. Some Rights Reserved.</h6>
-        </div>
-
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    </body>
-</html>
+@endsection

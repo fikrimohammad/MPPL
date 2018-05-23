@@ -1,79 +1,83 @@
+@extends('layouts.app')
+@section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/materi_pelatihan_upload.css') }}">
 
-<!DOCTYPE html>
-<html>
-<head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../css/input_data_pengajar_lulus.css">
-        <link rel="stylesheet" type="text/css" href="../css/submit_button.css">
-</head>
-<body>
-    
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-auto">
-                    <img src="../logo/logo.png" id="logo_IM">
+    <div class="container">
+        <form action="{{ route('materi_pelatihan.update', $materi_pelatihan->id) }}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field()  }}
+            @method('PUT')
+            @if ($message = Session::get('failed'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Whoops!</strong> {{ $message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
-            <hr class="medium">
-        </div>
+            @endif
 
-
-
-        <div class="container">
-
-            <h4 class="text-center py-3">Edit Pelatihan</h4>
-
-            
-            <form action="input_data_pengajar_lulus_process.php" method="POST"> 
-                <div class="row pb-2 justify-content-center">
-                    <div class="col-sm-8 mx-5 text-center">
-                        <table class="table table-hover font-weight-bold">
-                            <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td scope="row"><input type="text" class="form-control" id="namaLengkap" placeholder=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama Materi</td>
-                                        <td scope="row"><input type="text" class="form-control" id="namaLengkap" placeholder=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Deskripsi</td>
-                                        <td scope="row"><input type="text" class="form-control" id="namaLengkap" placeholder=""></td>
-                                    </tr> 
-                            </tbody>
-                        </table>
-                        <div class="row justify-content-end pt-3">
-                            <div class="col-sm-5">
-                                <div class="row justify-content-end">
-                                    <div class="col-sm-4">
-                                        <button type="submit" class="text-center" id="submit_button">
-                                            <img src="../logo/save.png" alt="Card image cap" style="width: 32px; height: 32px;">
-                                        </button>
-                                        <p class="font-weight-bold text-center">Simpan</p>    
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="text-center">
-                                            <a href="materi_pelatihan_download.php"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>  
-                                        </div>
-                                        <p class="font-weight-bold text-center pt-1">Kembali</p>    
-                                    </div>    
+            @foreach ($errors->all() as $message)
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Whoops!</strong> {{ $message }}
+                </div>
+            @endforeach
+            <div class="row pt-3 pb-5 justify-content-center">
+                <div class="col-sm-8 mx-5 text-center">
+                    <div class="row pt-4 pb-2 justify-content-center">
+                        <div class="col-sm-10">
+                            <div class="form-group row">
+                                <label class="col-sm-5 col-form-label" for="nama_materi_pelatihan">Nama Materi Pelatihan</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="nama_materi_pelatihan" name="nama_materi_pelatihan" value="{{ $materi_pelatihan->nama }}">
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
+                    <div class="row py-2 justify-content-center">
+                        <div class="col-sm-10">
+                            <div class="form-group row">
+                                <label class="col-sm-5 col-form-label" for="id_jadwal_pelatihan">Nama Pelatihan</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" id="id_jadwal_pelatihan" name="id_jadwal_pelatihan">
+                                        @foreach($jadwal_pelatihan as $jp)
+                                            <option value="{{ $jp->id }}" {{ ($materi_pelatihan->jadwal->id == $jp->id ? "selected":"") }}> {{$jp->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 justify-content-center">
+                        <div class="col-sm-10">
+                            <div class="form-group row">
+                                <label class="col-sm-5 col-form-label" for="materi_pelatihan">File Materi Pelatihan</label>
+                                <div class="col-sm-5">
+                                    <input type="file" id="materi_pelatihan" name="materi_pelatihan" class="form-control-static">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end pt-3">
+                        <div class="col-sm-5">
+                            <div class="row justify-content-end">
+                                <div class="col-sm-4">
+                                    <button type="submit" class="text-center" id="submit_button">
+                                        <img src="{{ asset('logo/save.png') }}" alt="Card image cap" style="width: 32px; height: 32px;">
+                                    </button>
+                                    <p class="font-weight-bold text-center">Submit</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="text-center">
+                                        <a href="{{ route('materi_pelatihan.index') }}"><img src="{{ asset('logo/back.png') }}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                    </div>
+                                    <p class="font-weight-bold text-center pt-1">Kembali</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-
-        <div class="container footer navbar-fixed-bottom">
-            <hr class="medium">  
-                <h6 class="py-3">© 2017 Yayasan Indonesia Mengajar. Some Rights Reserved.</h6>
-        </div>
-
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    </body>
-</html>
+            </div>
+        </form>
+    </div>
+@endsection

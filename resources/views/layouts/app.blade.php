@@ -23,7 +23,7 @@
 
                 @yield('content')
 
-                <footer class="footer" style="height: 100px;">
+                <footer class="footer">
                     <div class="container">
                         <hr class="large">
                         <h6 class="py-3">© 2017 Yayasan Indonesia Mengajar. Some Rights Reserved.</h6>

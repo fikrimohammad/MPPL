@@ -13,7 +13,7 @@ class MiddlewarePegawai
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$role)
+    public function handle($request, Closure $next, $role)
     {
         if(Auth::guard('pegawai')->user()->id_divisi_pegawai != $role){
             return redirect()->back();
