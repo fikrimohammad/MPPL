@@ -25,7 +25,7 @@ Route::prefix('pengajar')->group(function (){
 
     $this->get('login', 'AuthPengajar\LoginController@showLoginForm')->name('loginPengajar');
     $this->post('login', 'AuthPengajar\LoginController@login');
-    $this->post('logout', 'AuthPengajar\LoginController@logout')->name('logoutPengajar');
+    $this->get('logout', 'AuthPengajar\LoginController@logout')->name('logoutPengajar');
     Route::get('register','AuthPengajar\RegisterController@showRegistrationForm')->name('registerPengajar');
     Route::post('register','AuthPengajar\RegisterController@register')->name('registerPengajar');
 });

@@ -34,6 +34,7 @@ class CreatePengajarTable extends Migration
             $table->integer('skor_tes_pengajar');
             $table->tinyInteger('status_kelulusan');
             $table->string('nomor_pendaftaran');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

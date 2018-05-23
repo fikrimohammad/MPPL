@@ -19,8 +19,10 @@
                 <div class="container">
                 
                     <h4 class="text-center py-3">FORM REGISTRASI PENGAJAR</h4>
-                    
-                    <form method="post" action="{{route('registerPengajar')}}">
+                    @if(isset($errors))
+                        {{$errors}}
+                    @endif
+                    <form method="post" action="{{route('registerPengajar')}}" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -29,9 +31,9 @@
                                 <div class="row justify-content-center py-2">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                                <label class="col-sm-3" style="margin-right: 46px;" for="pasFoto">Pas Foto (ukuran 3x4)</label>
+                                                <label class="col-sm-3" style="margin-right: 46px;" for="photo">Pas Foto (ukuran 3x4)</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" class="form-control-file" id="pasFoto" name="photo">
+                                                    <input type="file" class="form-control-file" id="photo" name="photo">
                                                 </div>  
                                         </div>
                                     </div>
@@ -125,7 +127,7 @@
                                                 </div>  
                                         </div>
                                     </div>
-                                </div>                      
+                                </div>
                                 <div class="row justify-content-center py-2">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
@@ -179,16 +181,45 @@
                                 <div class="row justify-content-center py-2">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                                <label class="col-md-3" for="CV">Curriculum Vitae (CV)</label>
+                                                <label class="col-md-3" for="cv">Curriculum Vitae (CV)</label>
                                                 <div class="col-md-8">
-                                                    <input type="file" class="form-control-file" id="CV" name="cv">
+                                                    <input type="file" class="form-control-file" id="cv" name="cv">
                                                 </div>  
                                         </div>
                                     </div>
                                 </div>
 
+                                <h6 class="py-3">Autentifikasi</h6>
+                                <hr class="small">
+                                <p class=" py-1">Silakan isi password akun yang anda inginkan.</p>
+
+                                <div class="row justify-content-center py-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="password">Password</label>
+                                            <div class="col-md-8 offset-md-1">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center py-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="password_confirmation">Confirmasi Password</label>
+                                            <div class="col-md-8 offset-md-1">
+                                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
+
+
                         </div>
+                        {{csrf_field()}}
                         <div class="row justify-content-center pt-3 pb-5">
                             <div>
                                 <button type="submit" class="btn btn-submit">Simpan & Lanjutkan</button>   
