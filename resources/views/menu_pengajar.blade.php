@@ -7,7 +7,7 @@
 			<div class="row py-5 justify-content-center">
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="pengajar/hasil_seleksi"><img class="card-img-top" src="{{asset('logo/megaphone.png')}}" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="{{route('hasil_seleksi', Auth::guard('pengajar')->user()->id)}}"><img class="card-img-top" src="{{asset('logo/megaphone.png')}}" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Pengumuman Seleksi</h4>
 				</div>
@@ -30,7 +30,7 @@
 			<div class="row py-4 justify-content-center">	
 				<div class="col-sm-3">
 					<div class="text-center">
-						<a href="pengajar/kelompok_pengajar/1"><img class="card-img-top" src="{{asset('logo/team.png')}}" alt="Card image cap" style="width: 128px; height: 128px;"></a>
+						<a href="/pengajar/kelompok_pengajar/{{Auth::guard('pengajar')->user()->id}}"><img class="card-img-top" src="{{asset('logo/team.png')}}" alt="Card image cap" style="width: 128px; height: 128px;"></a>
 					</div>
 					<h4 class="text-center pt-4">Kelompok & Tempat Penugasan</h4>
 				</div>

@@ -17,7 +17,8 @@ class MateriPelatihanController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('pegawai:2')->except('logout');
+        $this->middleware('pegawai:2')->except('logout','download_materi');
+        $this->middleware('auth:pengajar')->only('download_materi');
     }
 
     public function index()
