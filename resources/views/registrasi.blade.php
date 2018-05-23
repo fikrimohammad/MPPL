@@ -19,8 +19,10 @@
                 <div class="container">
                 
                     <h4 class="text-center py-3">FORM REGISTRASI PENGAJAR</h4>
-                    
-                    <form method="post">
+                    @if(isset($errors))
+                        {{$errors}}
+                    @endif
+                    <form method="post" action="{{route('registerPengajar')}}" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -29,9 +31,9 @@
                                 <div class="row justify-content-center py-2">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                                <label class="col-sm-3" style="margin-right: 46px;" for="pasFoto">Pas Foto (ukuran 3x4)</label>
+                                                <label class="col-sm-3" style="margin-right: 46px;" for="photo">Pas Foto (ukuran 3x4)</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" class="form-control-file" id="pasFoto" name="pasFoto">
+                                                    <input type="file" class="form-control-file" id="photo" name="photo">
                                                 </div>  
                                         </div>
                                     </div>
@@ -41,7 +43,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="namaLengkap">Nama Lengkap</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="namaLengkap" name="nama" placeholder="">
+                                                    <input type="text" class="form-control" id="namaLengkap" name="name" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -55,15 +57,35 @@
                                             <div class="col-sm-8" style="padding-left: 63px;">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelaminPria" value="Pria" checked>
+                                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenisKelaminPria" value="Pria" checked>
                                                         Pria
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelaminWanita" value="Wanita">
+                                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenisKelaminWanita" value="Wanita">
                                                         Wanita
                                                     </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center py-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="tempat_lahir">Tempat Lahir</label>
+                                                <div class="col-md-8 offset-md-1">
+                                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center py-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="tanggal_lahir">Tanggal Lahir</label>
+                                                <div class="col-md-8 offset-md-1">
+                                                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +97,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="alamat">Alamat</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="alamat" nama="alamat" placeholder="">
+                                                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -105,14 +127,14 @@
                                                 </div>  
                                         </div>
                                     </div>
-                                </div>                      
+                                </div>
                                 <div class="row justify-content-center py-2">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="noHandphone">Nomor Handphone</label>
                                                 <div class="input-group col-sm-8 offset-sm-1">
                                                     <span class="input-group-addon" id="noHandphone">+62</span>
-                                                    <input type="text" class="form-control" id="noHandphone" placeholder="">
+                                                    <input type="text" class="form-control" id="noHandphone" name="no_hp" placeholder="">
                                                 </div>  
                                         </div>
                                     </div>
@@ -146,7 +168,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3 col-form-label" for="namaInstitusiPendidikan">Nama Institusi Pendidikan</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="" name="namaInstitusiPendidikan">
+                                                    <input type="text" class="form-control" id="namaInstitusiPendidikan" placeholder="" name="nama_institusi_pendidikan">
                                                 </div>  
                                         </div>
                                     </div>
@@ -159,16 +181,45 @@
                                 <div class="row justify-content-center py-2">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                                <label class="col-md-3" for="CV">Curriculum Vitae (CV)</label>
+                                                <label class="col-md-3" for="cv">Curriculum Vitae (CV)</label>
                                                 <div class="col-md-8">
-                                                    <input type="file" class="form-control-file" id="CV" name="cv">
+                                                    <input type="file" class="form-control-file" id="cv" name="cv">
                                                 </div>  
                                         </div>
                                     </div>
                                 </div>
 
+                                <h6 class="py-3">Autentifikasi</h6>
+                                <hr class="small">
+                                <p class=" py-1">Silakan isi password akun yang anda inginkan.</p>
+
+                                <div class="row justify-content-center py-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="password">Password</label>
+                                            <div class="col-md-8 offset-md-1">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center py-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="password_confirmation">Confirmasi Password</label>
+                                            <div class="col-md-8 offset-md-1">
+                                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
+
+
                         </div>
+                        {{csrf_field()}}
                         <div class="row justify-content-center pt-3 pb-5">
                             <div>
                                 <button type="submit" class="btn btn-submit">Simpan & Lanjutkan</button>   

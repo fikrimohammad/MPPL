@@ -29,7 +29,7 @@
                 
                     <h4 class="text-center py-3">HALAMAN LOGIN PENGAJAR</h4>
                     
-                    <form>
+                    <form method="post" action="{{route('loginPengajar')}}">
                         <div class="row justify-content-center">
                             <div class="col-sm-6 ">
                                 <div class="row py-2">
@@ -37,7 +37,7 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="emailPengajar">Email</label>
                                                 <div class="col-sm-8 offset-sm-1">
-                                                    <input type="text" class="form-control" id="emailPengajar" placeholder="">    
+                                                    <input type="text" class="form-control" id="emailPengajar" placeholder="" name="email">
                                                 </div>  
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                         <div class="form-group row">
                                                 <label class="col-md-3 col-form-label" for="passwordPengajar">Password</label>
                                                 <div class="col-md-8 offset-md-1">
-                                                    <input type="text" class="form-control" id="passwordPengajar" placeholder=""> 
+                                                    <input type="text" class="form-control" id="passwordPengajar" placeholder="" name="password">
                                                 </div>  
                                         </div>
                                     </div>
