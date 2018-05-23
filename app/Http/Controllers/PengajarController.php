@@ -6,6 +6,7 @@ use App\Pengajar;
 use App\Materi_pelatihan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PengajarController extends Controller
 {
@@ -13,7 +14,7 @@ class PengajarController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+      */
     public function index()
     {
         //
@@ -94,7 +95,8 @@ class PengajarController extends Controller
         return true;
     }
 
-    public function viewSeleksi(Pengajar $pengajar){
+    public function viewSeleksi(){
+        $pengajar = Auth::guard('pengajar')->user();
         if($pengajar->status_kelulusan == 1){
             return view('pengajar.lulus');
         }

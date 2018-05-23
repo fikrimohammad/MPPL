@@ -31,12 +31,14 @@
                             <th scope="col">Tempat Pelatihan</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
+                            @foreach($jadwal as $item)
+                                <tr>
+                                    <th scope="row">{{$loop->count}}</th>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->tgl_dan_waktu }}</td>
+                                    <td>{{ $item->alamat_tempat }}</td>
+                                </tr>
+                                @endforeach
                             <tr>
                                 <th scope="row">2</th>
                                 <td>Jacob</td>
@@ -56,7 +58,7 @@
                             <div class="row justify-content-end">
                                 <div class="col-sm-3">
                                     <div class="text-center">
-                                        <a href="../menu_pengajar.php"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                        <a href="/pengajar"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                     </div>
                                     <p class="font-weight-bold text-center">Kembali</p>    
                                 </div>    
