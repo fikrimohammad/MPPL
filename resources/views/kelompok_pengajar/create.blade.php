@@ -33,6 +33,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row pt-4 pb-2 justify-content-center">
+                        <div class="col-sm-8">
+                            <div class="form-group row">
+                                <label class="col-sm-5 col-form-label" for="tempatPenugasan">Tempat Penugasan</label>
+                                <div class="col-sm-5">
+                                    <select type="text" class="form-control" id="tempatPenugasan" name="tempatPenugasan">
+                                        <option selected></option>
+                                        @foreach($tempat_penugasan as $tp)
+                                            <option value="{{$tp->id}}">{{$tp->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row py-2 justify-content-center">
                         <div class="col-sm-8">
                             <div class="form-group row">

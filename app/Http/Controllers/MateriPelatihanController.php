@@ -78,7 +78,8 @@ class MateriPelatihanController extends Controller
     public function edit(Materi_pelatihan $materi_pelatihan)
     {
         //
-        return view('bagian_pelatihan.edit_materi')->with('materi_pelatihan',$materi_pelatihan);
+        $jadwal_pelatihan = Jadwal_pelatihan::all();
+        return view('bagian_pelatihan.edit_materi', compact('jadwal_pelatihan'))->with('materi_pelatihan', $materi_pelatihan);
     }
 
     /**

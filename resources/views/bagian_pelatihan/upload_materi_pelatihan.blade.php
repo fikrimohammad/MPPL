@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="materi_pelatihan">File Materi Pelatihan</label>
                             <div class="col-sm-5">
-                                <input type="file" id="materi_pelatihan" name="materi_pelatihan">
+                                <input type="file" id="materi_pelatihan" name="materi_pelatihan" class="form-control-static">
                             </div>
                         </div>
                     </div>

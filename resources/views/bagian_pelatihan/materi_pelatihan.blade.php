@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="text-center">
-                                    <a href="{{ url('menu-bagian-pelatihan') }}"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                    <a href="{{ route('pelatihan') }}"><img src="{{ asset('/logo/back-button.png') }}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                 </div>
                                 <p class="font-weight-bold text-center">Kembali</p>
                             </div>
