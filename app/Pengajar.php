@@ -15,7 +15,7 @@ class Pengajar extends Authenticatable
     protected $table = 'pengajar';
 
     protected $fillable = ['email',  'password', 'nama', 'tempat_lahir','tgl_lahir','alamat','agama','no_hp','email','jenjang_pendidikan_terakhir','nama_institusi_pendidikan'
-    ,'lokasi_penyimpanan_cv','lokasi_penyimpanan_pas_foto','skor_tes_pengajar','status_kelulusan','nomor_pendaftaran','jenis_kelamin'];
+    ,'lokasi_penyimpanan_cv','lokasi_penyimpanan_pas_foto','skor_tes_pengajar','status_kelulusan','nomor_pendaftaran','jenis_kelamin', 'id_kelompok_pengajar'];
 
     protected $hidden = ['password'];
 

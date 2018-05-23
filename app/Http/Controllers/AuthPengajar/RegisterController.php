@@ -86,6 +86,7 @@ class RegisterController extends Controller
             'skor_tes_pengajar' => -1,
             'status_kelulusan' => 0,
             'nomor_pendaftaran' => random_int(1000,9999),
+            'id_kelompok_pengajar' => -9999
         ]);
     }
     private  function upload(Array $data,$type){

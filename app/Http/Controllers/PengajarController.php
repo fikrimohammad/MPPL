@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jadwal_pelatihan;
+use App\Kelompok_pengajar;
 use App\Pengajar;
 use App\Materi_pelatihan;
 use Illuminate\Http\Request;
@@ -117,9 +119,20 @@ class PengajarController extends Controller
         return view('pengajar.tempat_penugasan')->with('pengajar',$pengajar);
     }
 
+
+    public function jadwal_pelatihan(){
+        $jadwal = Jadwal_pelatihan::all();
+        return view('pengajar.jadwal_pelatihan')->with('jadwal',$jadwal);
+    }
+
     public function materi_pelatihan(){
         $materi = Materi_pelatihan::all();
         return view('pengajar.materi_pelatihan')->with('materi',$materi);
+    }
+
+    public function kelompok_pengajar(Pengajar $pengajar){
+        $kelompok = Kelompok_pengajar::where('id', $pengajar->id_kelompok_pengajar)->first();
+        return view('pengajar.kelompok_pengajar', compact('kelompok'));
     }
 
     private  function upload(Request $request,$upload_form){
