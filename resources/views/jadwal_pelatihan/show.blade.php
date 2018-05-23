@@ -19,7 +19,7 @@
                         <div class="row justify-content-end">
                             <div class="col-sm-3">
                                 <div class="text-center">
-                                    <a href="{{ route('jadwal_pelatihan.index') }}"><img src="../logo/back-button.png" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                    <a href="{{ route('jadwal_pelatihan.index') }}"><img src="{{asset('/logo/back-button.png')}}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                 </div>
                                 <p class="font-weight-bold text-center">Kembali</p>
                             </div>

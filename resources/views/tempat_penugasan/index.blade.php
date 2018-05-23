@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="text-center">
-                                    <a href="../menu_bagian_penempatan.php"><img src="{{ asset('logo/back-button.png') }}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
+                                    <a href="{{url('pegawai/penugasan')}}"><img src="{{ asset('logo/back-button.png') }}" alt="Card image cap" style="width: 32px; height: 32px;"></a>
                                 </div>
                                 <p class="font-weight-bold text-center">Kembali</p>
                             </div>

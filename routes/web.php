@@ -61,22 +61,23 @@ Route::prefix('pegawai')->group(function (){
     Route::post('login', 'AuthPegawai\LoginControllerPegawai@login');
     Route::get('logout', 'AuthPegawai\LoginControllerPegawai@logout')->name('logout');
 
-// Password Reset Routes...
-    Route::get('password/reset', 'AuthPengajar\ForgotPasswordControllerPegawai@showLinkRequestForm');
-    Route::post('password/email', 'AuthPengajar\ForgotPasswordControllerPegawai@sendResetLinkEmail');
-    Route::get('password/reset/{token}', 'AuthPengajar\ResetPasswordControllerPegawai@showResetForm');
-    Route::post('password/reset', 'AuthPengajar\ResetPasswordControllerPegawai@reset');
+//// Password Reset Routes...
+//    Route::get('password/reset', 'AuthPengajar\ForgotPasswordControllerPegawai@showLinkRequestForm');
+//    Route::post('password/email', 'AuthPengajar\ForgotPasswordControllerPegawai@sendResetLinkEmail');
+//    Route::get('password/reset/{token}', 'AuthPengajar\ResetPasswordControllerPegawai@showResetForm');
+//    Route::post('password/reset', 'AuthPengajar\ResetPasswordControllerPegawai@reset');
 
 //menu redirect pegawai
     Route::get('rekrutmen','PegawaiController@menuRekrutmen')->name('rekrutmen');
     Route::get('pelatihan','PegawaiController@menuPelatihan')->name('pelatihan');
-    Route::get('penugasan','PegawaiController@menuPenempatan')->name('penempatan');
+    Route::get('penugasan','PegawaiController@menuPenugasan')->name('penugasan');
 
     Route::get('home/{pegawai}','PegawaiController@home');
 
     Route::resource('materi_pelatihan','MateriPelatihanController');
     Route::resource('kelompok_pengajar','KelompokPengajarController');
     Route::resource('tempat_penugasan','TempatPenugasanController');
+    Route::get('manage-pengajar', 'PengajarController@index_rekrutmen');
     Route::resource('pengajar','PengajarController')->except([
         'create', 'store'
     ]);
