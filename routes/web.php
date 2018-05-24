@@ -16,15 +16,12 @@ Route::get('/', function () {
 });
 Route::get('/pengajar','MenuPengajar@index');
 Route::prefix('pengajar')->group(function (){
-    Route::middleware('auth:pengajar')->group(function (){
-        Route::get('materi_pelatihan','PengajarController@materi_pelatihan');
-        Route::get('materi_pelatihan/{id}/download','MateriPelatihanController@download_materi');
-        Route::get('jadwal_pelatihan','MenuPengajar@jadwal');
-        Route::get('hasil_seleksi/','PengajarController@viewSeleksi');
-        Route::get('kelompok_pengajar/{pengajar}/','PengajarController@kelompok');
-        Route::get('kelompok_pengajar/{pengajar}/penugasan','PengajarController@tempatPenugasan');
-
-    });
+    Route::get('materi_pelatihan','PengajarController@materi_pelatihan');
+    Route::get('materi_pelatihan/{id}/download','MateriPelatihanController@download_materi');
+    Route::get('jadwal_pelatihan','PengajarController@jadwal_pelatihan');
+    Route::get('hasil_seleksi/{pengajar}','PengajarController@viewSeleksi')->name('hasil_seleksi');
+    Route::get('kelompok_pengajar/{pengajar}/','PengajarController@kelompok_pengajar');
+    Route::get('kelompok_pengajar/{pengajar}/penugasan','PengajarController@tempatPenugasan');
     $this->get('login', 'AuthPengajar\LoginController@showLoginForm')->name('loginPengajar');
     $this->post('login', 'AuthPengajar\LoginController@login');
     $this->get('logout', 'AuthPengajar\LoginController@logout')->name('logoutPengajar');

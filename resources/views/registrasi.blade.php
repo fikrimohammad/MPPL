@@ -39,7 +39,7 @@
                                 <div>
                                     <div class="form-group">
                                         <div class="row py-2">
-                                            <legend class="col-form-legend col-sm-3">Jenis Kelamin</legend> 
+                                            <label class="col-form-label col-sm-3">Jenis Kelamin</label>
                                             <div class="col-sm-8" style="padding-left: 63px;">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
@@ -211,7 +211,7 @@
                                 <button type="submit" class="btn btn-submit">Simpan & Lanjutkan</button>   
                             </div>  
                             <div class="pl-2">
-                                <a class="btn btn-cancel" href="../index.html" role="button">Kembali Ke Beranda</a>   
+                                <a class="btn btn-cancel" href="{{url('/')}}" role="button">Kembali Ke Beranda</a>
                             </div>
                         </div>
                         
