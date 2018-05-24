@@ -27,8 +27,8 @@
                             <tbody>
                             @foreach($pengajar as $peng)
                                 <tr>
-                                    <th scope="row">{{ $loop->count }}</th>
-                                    <td>PENG000{{ $peng->id }}</td>
+                                    <th scope="row">PENG000{{ $peng->id }}</th>
+                                    <td>{{$peng->nama}}</td>
                                     <td>
                                         @if ($peng->status_kelulusan == 1)
                                             Lulus

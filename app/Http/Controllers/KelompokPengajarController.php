@@ -29,7 +29,7 @@ class KelompokPengajarController extends Controller
      */
     public function create()
     {
-        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', -9999], ['status_kelulusan', '=', 1]])->get();
+        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', NULL], ['status_kelulusan', '=', 1]])->get();
         $tempat_penugasan = Tempat_penugasan::all();
         return view('kelompok_pengajar.create', compact('pengajar', 'tempat_penugasan'));
     }
@@ -50,7 +50,7 @@ class KelompokPengajarController extends Controller
         ]);
 
         $kelompok_pengajar = new Kelompok_pengajar();
-        $kelompok_pengajar->id_tempat_penugasan = 0;
+        $kelompok_pengajar->id_tempat_penugasan = $request->input('tempatPenugasan');
         $kelompok_pengajar->nama = $request->input('namaKelompok');
         $kelompok_pengajar->save();
 
@@ -86,8 +86,9 @@ class KelompokPengajarController extends Controller
      */
     public function edit(Kelompok_pengajar $kelompok_pengajar)
     {
-        $pengajar = Pengajar::where('id_kelompok_pengajar', '=', NULL)->get();
-        return view('kelompok_pengajar.edit', compact('kelompok_pengajar'))->with('pengajar', $pengajar);
+        $tempat_penugasan = Tempat_penugasan::all();
+        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', NULL], ['status_kelulusan', '=', 1]])->get();
+        return view('kelompok_pengajar.edit', compact('kelompok_pengajar', 'tempat_penugasan'))->with('pengajar', $pengajar);
     }
 
     /**
@@ -99,7 +100,27 @@ class KelompokPengajarController extends Controller
      */
     public function update(Request $request, Kelompok_pengajar $kelompok_pengajar)
     {
-        //
+        request()->validate([
+            'namaKelompok' => 'required|unique:kelompok_pengajar,nama',
+        ], [
+            'namaKelompok.required' => 'Mohon mengisi nama kelompok_pengajar',
+            'namaKelompok.unique' => 'Mohon maaf, kelompok pengajar dengan nama '.$request->input('namaKelompok').' sudah ada',
+        ]);
+
+        $kelompok_pengajar->id_tempat_penugasan = $request->input('tempatPenugasan');
+        $kelompok_pengajar->nama = $request->input('namaKelompok');
+        $kelompok_pengajar->save();
+
+        for ($i = 1 ; $i <= 3 ; $i++){
+            $pengajar = Pengajar::find($request->input('idPengajar_'. $i ));
+            $kelompok_pengajar->pengajar()->save($pengajar);
+            $pengajar->kelompok()->associate($kelompok_pengajar);
+            $pengajar->save();
+        }
+
+        $message = "Kelompok pengajar dengan nama ".$request->input('namaKelompok')." berhasil dirubah";
+
+        return redirect()->route('kelompok_pengajar.index')->with('success', $message);
     }
 
     /**
@@ -127,7 +148,7 @@ class KelompokPengajarController extends Controller
         else{
             $pengajar = Pengajar::where([['id', '!=', $peng_id],
                 ['status_kelulusan', '=', 1],
-                ['id_kelompok_pengajar', '!=', NULL]])
+                ['id_kelompok_pengajar', '=', NULL]])
                 ->get();
         }
         return Response::json($pengajar);
@@ -135,11 +156,16 @@ class KelompokPengajarController extends Controller
     public function select_pengajar_2(){
         $peng_id1 = request()->peng_id1;
         $peng_id2 = request()->peng_id2;
-        $pengajar = Pengajar::where([['id', '!=', $peng_id1],
-                                     ['id', '!=', $peng_id2],
-                                     ['status_kelulusan', '=', 1],
-                                     ['id_kelompok_pengajar', '!=', NULL]])
-                              ->get();
+        if ($peng_id2 == -99999999){
+            $pengajar = NULL;
+        }
+        else{
+            $pengajar = Pengajar::where([['id', '!=', $peng_id1],
+                ['id', '!=', $peng_id2],
+                ['status_kelulusan', '=', 1],
+                ['id_kelompok_pengajar', '=', NULL]])
+                ->get();
+        }
         return Response::json($pengajar);
     }
 }
