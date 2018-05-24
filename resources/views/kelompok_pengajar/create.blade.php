@@ -81,6 +81,7 @@
                                 </div>
                                 <div class="col-sm-3" style="margin-left: -40px;">
                                     <select class="form-control" id="idPengajar_2" name="idPengajar_2">
+                                        <option selected value="-99999999"></option>
                                     </select>
                                 </div>
                             </div>
@@ -132,7 +133,7 @@
                     console.log(e);
 
                     var peng_id = e.target.value
-                    alert(peng_id);
+                    // alert(peng_id);
 
                     $.get('/ajax_kp1?peng_id=' + peng_id, function (data) {
                         $.each(data, function (index, pengajar) {
@@ -152,7 +153,7 @@
                     var temp = document.getElementById('idPengajar_1');
                     var peng_id1 = temp.options[temp.selectedIndex].value;
                     var peng_id2 = e.target.value
-                    alert(peng_id1 + ' ' + peng_id2);
+                    // alert(peng_id1 + ' ' + peng_id2);
 
                     $.get('/ajax_kp2?peng_id1=' + peng_id1 + '&peng_id2=' + peng_id2, function (data) {
                         $.each(data, function (index, pengajar) {

@@ -86,7 +86,7 @@ class PengajarController extends Controller
 //        }
         $pengajar->status_kelulusan = $request->input('status_kelulusan');
         $pengajar->save();
-        return redirect('manage-pengajar');
+        return redirect('pegawai/manage-pengajar');
     }
 
     /**

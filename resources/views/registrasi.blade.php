@@ -92,7 +92,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-row align-items-center">
                                                     <label class="col-sm-3" for="agama" style="margin-right: 59px;">Agama</label>
-                                                        <select class="custom-select my-3" id="agama" name="agama">
+                                                        <select class="custom-select col-sm-7 mb-1 mr-sm-0 mb-sm-0" id="agama" name="agama">
                                                             <option selected></option>
                                                             <option value="Islam">Islam</option>
                                                             <option value="Protestan">Kristen Prostentan</option>
@@ -119,9 +119,11 @@
                                         <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label" for="noHandphone">Nomor Handphone</label>
                                                 <div class="input-group col-sm-8 offset-sm-1">
-                                                    <span class="input-group-addon" id="noHandphone">+62</span>
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">+62</span>
+                                                    </div>
                                                     <input type="text" class="form-control" id="noHandphone" name="no_hp" placeholder="">
-                                                </div>  
+                                                </div>
                                         </div>
                                     </div>
                                 </div>  
