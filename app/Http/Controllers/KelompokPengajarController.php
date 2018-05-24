@@ -29,7 +29,7 @@ class KelompokPengajarController extends Controller
      */
     public function create()
     {
-        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', NULL], ['status_kelulusan', '=', 1]])->get();
+        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', -9999], ['status_kelulusan', '=', 1]])->get();
         $tempat_penugasan = Tempat_penugasan::all();
         return view('kelompok_pengajar.create', compact('pengajar', 'tempat_penugasan'));
     }

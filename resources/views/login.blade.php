@@ -7,6 +7,7 @@
                     <h4 class="text-center py-3">HALAMAN LOGIN PENGAJAR</h4>
                     
                     <form method="post" action="{{route('loginPengajar')}}">
+                        {{csrf_field()}}
                         <div class="row justify-content-center">
                             <div class="col-sm-6 ">
                                 <div class="row py-2">

@@ -6,7 +6,7 @@
 			
 			<div class="row py-4 justify-content-center">
 				<div class="col-sm-6 mx-5 text-center">
-					<img src="../logo/checked.png" alt="Card image cap" style="width: 256px; height: 256px;">
+					<img src="{{asset('/logo/checked.png')}}" alt="Card image cap" style="width: 256px; height: 256px;">
 					<h4 class="text-center pt-4">Selamat Anda Lulus Menjadi Pengajar</h4>
 				</div>
 			</div>

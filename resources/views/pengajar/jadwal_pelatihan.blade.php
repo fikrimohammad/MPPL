@@ -23,7 +23,7 @@
                     <tbody>
                     @foreach($jadwal as $jd)
                         <tr>
-                            <th scope="row">{{ $loop->count }}</th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $jd->nama }}</td>
                             <td>{{ $jd->tgl_dan_waktu }}</td>
                             <td>{{ $jd->alamat_tempat }}</td>
