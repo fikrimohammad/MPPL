@@ -28,7 +28,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label" for="nama_materi_pelatihan">Nama Materi Pelatihan</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="nama_materi_pelatihan" name="nama_materi_pelatihan" value="{{ $materi_pelatihan->nama }}">
+                                    <input type="text" class="form-control" id="nama_materi_pelatihan" name="nama" value="{{ $materi_pelatihan->nama }}">
                                 </div>
                             </div>
                         </div>

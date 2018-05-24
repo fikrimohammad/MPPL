@@ -20,18 +20,15 @@
                                 <tr>
                                     <th scope="row">{{ $loop->count }}</th>
                                     <td>PENG000{{ $peng->id }}</td>
-                                    <td>{{ $peng->nama }}</td>
+                                    <td>
+                                        @if($peng->status_kelulusan == 1)
+                                            Lulus
+                                        @else
+                                            Tidak Lulus
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('pengajar.edit', $peng->id) }}">Edit</a> |
-                                        <a href="#" onclick="event.preventDefault();
-										document.getElementById('destroy-form').submit();">
-                                            Delete
-                                            <form id="destroy-form" action="{{ route('pengajar.destroy', $peng->id) }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                                @method('DELETE')
-                                            </form>
-
-                                        </a> |
                                         <a href="{{ route('pengajar.show', $peng->id) }}">Show</a>
                                     </td>
                                 </tr>
