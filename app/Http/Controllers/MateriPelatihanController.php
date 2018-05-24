@@ -100,7 +100,7 @@ class MateriPelatihanController extends Controller
             $materi_pelatihan->lokasi_penyimpanan = $this->upload($request);
         }
         $materi_pelatihan->save();
-        return $this->index();
+        return redirect()->route('materi_pelatihan.index');
     }
 
     /**
@@ -124,7 +124,7 @@ class MateriPelatihanController extends Controller
     private function upload(Request $request){
         $file = $request->file('materi_pelatihan');
         $filename = Carbon::now()->toDateString().$file->getFilename().'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('materi_pelatihan',$filename,'local');
+        $path = $file->storeAs('public/files/materi_pelatihan',$filename,'local');
         return $path;
     }
 }

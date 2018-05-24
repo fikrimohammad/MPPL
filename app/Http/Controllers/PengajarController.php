@@ -38,8 +38,7 @@ class PengajarController extends Controller
     public function show(Pengajar $pengajar)
     {
         //
-        $all = Pengajar::all();
-        return view('listPengajar')->with('pengajar',$all);
+        return view('bagian_rekrutmen.detail_pengajar')->with('pengajar', $pengajar);
     }
 
     /**
@@ -51,7 +50,7 @@ class PengajarController extends Controller
     public function edit(Pengajar $pengajar)
     {
         //
-        return view('bagian_rekrutmen.edit_data_pengajar')->with('pengajar',$pengajar);
+        return view('bagian_rekrutmen.edit_data_pengajar')->with('pengajar', $pengajar);
     }
 
     /**
@@ -64,29 +63,30 @@ class PengajarController extends Controller
     public function update(Request $request, Pengajar $pengajar)
     {
         //
-        $pengajar->nama = $request->input('nama');
-        $pengajar->tempat_lahir = $request->input('tempat_lahir');
-        $pengajar->tanggal_lahir = $request->input('tanggal_lahir');
-//        tempat tanggal lahir belum ada
-        $pengajar->alamat = $request->input('alamat');
-        $pengajar->agama = $request->input('agama');
-        $pengajar->no_hp = $request->input('no_hp');
-//        no hp blom ada
-        $pengajar->email = $request->input('pengajar');
-        $pengajar->password = bcrypt($request->input('password'));
-//        password belum ada
-        $pengajar->jenjang_pendidikan_terakhir = $request->input('pendidikan');
-        $pengajar->nama_institusi_pendidikan = $request->input('namaInstitusiPendidikan');
-        if($request->hasFile('cv')){
-            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_cv);
-            $pengajar->lokasi_penyimpanan_cv = $this->upload($request,'cv');
-        }
-        if($request->hasFile('pasFoto')){
-            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_pas_foto);
-            $pengajar->lokasi_penyimpanan_pas_foto = $this->upload($request,'pasFoto');
-        }
+//        $pengajar->nama = $request->input('nama');
+//        $pengajar->tempat_lahir = $request->input('tempat_lahir');
+//        $pengajar->tanggal_lahir = $request->input('tanggal_lahir');
+////        tempat tanggal lahir belum ada
+//        $pengajar->alamat = $request->input('alamat');
+//        $pengajar->agama = $request->input('agama');
+//        $pengajar->no_hp = $request->input('no_hp');
+////        no hp blom ada
+//        $pengajar->email = $request->input('pengajar');
+//        $pengajar->password = bcrypt($request->input('password'));
+////        password belum ada
+//        $pengajar->jenjang_pendidikan_terakhir = $request->input('pendidikan');
+//        $pengajar->nama_institusi_pendidikan = $request->input('namaInstitusiPendidikan');
+//        if($request->hasFile('cv')){
+//            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_cv);
+//            $pengajar->lokasi_penyimpanan_cv = $this->upload($request,'cv');
+//        }
+//        if($request->hasFile('pasFoto')){
+//            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_pas_foto);
+//            $pengajar->lokasi_penyimpanan_pas_foto = $this->upload($request,'pasFoto');
+//        }
+        $pengajar->status_kelulusan = $request->input('status_kelulusan');
         $pengajar->save();
-        return $this->index();
+        return redirect('manage-pengajar');
     }
 
     /**
