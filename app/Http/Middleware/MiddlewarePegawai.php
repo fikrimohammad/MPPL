@@ -15,10 +15,13 @@ class MiddlewarePegawai
      */
     public function handle($request, Closure $next, $role)
     {
-        if(Auth::guard('pegawai')->user()->id_divisi_pegawai != $role){
-            return redirect()->back();
+        if(Auth::check()){
+            if(Auth::guard('pegawai')->user()->id_divisi_pegawai != $role){
+                return redirect()->back();
+            }
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->back();
 
     }
 }

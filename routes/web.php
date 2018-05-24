@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/pengajar','MenuPengajar@index');
 Route::prefix('pengajar')->group(function (){
     Route::get('materi_pelatihan','PengajarController@materi_pelatihan');
-    Route::get('materi_pelatihan/{id}/download','MateriPelatihanController@download_materi');
+    Route::get('materi_pelatihan/{materi_pelatihan}/download','MateriPelatihanController@download_materi');
     Route::get('jadwal_pelatihan','PengajarController@jadwal_pelatihan');
     Route::get('hasil_seleksi/{pengajar}','PengajarController@viewSeleksi')->name('hasil_seleksi');
     Route::get('kelompok_pengajar/{pengajar}/','PengajarController@kelompok_pengajar');

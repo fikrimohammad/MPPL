@@ -19,5 +19,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="bemfkg" />
+    <orderEntry type="module" module-name="bemfkg" />
   </component>
 </module>

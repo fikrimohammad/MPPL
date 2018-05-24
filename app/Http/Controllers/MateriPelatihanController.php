@@ -112,13 +112,13 @@ class MateriPelatihanController extends Controller
     public function destroy(Materi_pelatihan $materi_pelatihan)
     {
         //
-        Storage::disk('local')->delete($materi_pelatihan->lokasi_penyimpanan);
+        Storage::disk('public')->delete($materi_pelatihan->lokasi_penyimpanan);
         $materi_pelatihan->delete();
         return $this->index();
     }
 
     public function download_materi(Materi_pelatihan $materi_pelatihan){
-        return response()->download($materi_pelatihan->lokasi_penyimpanan);
+        return Storage::download($materi_pelatihan->lokasi_penyimpanan);
     }
 
     private function upload(Request $request){
