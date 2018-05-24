@@ -3,6 +3,13 @@
     <div class="container">
 
         <h4 class="text-center py-3">HALAMAN LOGIN PEGAWAI</h4>
+        @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            @foreach($errors->all() as $error)
+                <strong>Error! </strong> {{$error}}
+                @endforeach
+        </div>
+        @endif
 
         <form action="{{url('/pegawai/login')}}" method="post">
             {{ csrf_field() }}

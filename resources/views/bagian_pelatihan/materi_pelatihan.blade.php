@@ -3,6 +3,17 @@
     <div class="container">
 
         <h4 class="text-center py-3">MATERI PELATIHAN</h4>
+        @if(isset($message))
+            @if($type == 'error')
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error! </strong> {{$message}}
+                </div>
+            @elseif($type == 'success')
+                <div class="alert alert-danger" role="alert">
+                    <strong>Success! </strong> {{$message}}
+                </div>
+            @endif
+        @endif
 
         <div class="row pb-2 justify-content-center">
             <div class="col-sm-8 mx-5 text-center">
