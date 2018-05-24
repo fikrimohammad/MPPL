@@ -12,11 +12,11 @@ class JadwalPelatihanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($message,$type)
     {
         $i = 0;
         $jadwal_pelatihan = Jadwal_pelatihan::orderBy('nama', 'asc')->get();
-        return view('jadwal_pelatihan.index', compact('jadwal_pelatihan'))->with('i', $i);
+        return view('jadwal_pelatihan.index', compact('jadwal_pelatihan'))->with('message',$message)->with('type',$type);
     }
 
     /**

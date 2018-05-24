@@ -17,11 +17,11 @@ class PegawaiController extends Controller
     public function home(Pegawai $pegawai){
         switch ($pegawai->id_divisi_pegawai){
             case '1':
-                return redirect()->route('rekrutmen');
+                return redirect()->route('rekrutmen')->with('message','Selamat datang')->with('type','success');
             case '2':
-                return redirect()->route('pelatihan');
+                return redirect()->route('pelatihan')->with('message','Selamat datang')->with('type','success');
             case '3':
-                return redirect()->route('penugasan');
+                return redirect()->route('penugasan')->with('message','Selamat datang')->with('type','success');
             default :
                 return 'Wrong Pegawai';
         }

@@ -4,6 +4,18 @@
 
 		<h4 class="text-center pt-3 pb-4">MENU BAGIAN REKRUTMEN</h4>
 
+		@if(isset($message))
+			@if($type == 'error')
+			<div class="alert alert-danger" role="alert">
+				<strong>Error! </strong> {{$message}}
+			</div>
+				@elseif($type == 'success')
+				<div class="alert alert-danger" role="alert">
+					<strong>Success! </strong> {{$message}}
+				</div>
+			@endif
+		@endif
+
 		<div class="row py-5 justify-content-center">
 			<div class="col-sm-3">
 				<div class="text-center">
