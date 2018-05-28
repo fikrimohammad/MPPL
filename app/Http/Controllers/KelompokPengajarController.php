@@ -87,7 +87,7 @@ class KelompokPengajarController extends Controller
     public function edit(Kelompok_pengajar $kelompok_pengajar)
     {
         $tempat_penugasan = Tempat_penugasan::all();
-        $pengajar = Pengajar::where([['id_kelompok_pengajar', '=', NULL], ['status_kelulusan', '=', 1]])->get();
+        $pengajar = Pengajar::where('status_kelulusan', '=', 1)->get();
         return view('kelompok_pengajar.edit', compact('kelompok_pengajar', 'tempat_penugasan'))->with('pengajar', $pengajar);
     }
 
@@ -101,10 +101,9 @@ class KelompokPengajarController extends Controller
     public function update(Request $request, Kelompok_pengajar $kelompok_pengajar)
     {
         request()->validate([
-            'namaKelompok' => 'required|unique:kelompok_pengajar,nama',
+            'namaKelompok' => 'required'
         ], [
-            'namaKelompok.required' => 'Mohon mengisi nama kelompok_pengajar',
-            'namaKelompok.unique' => 'Mohon maaf, kelompok pengajar dengan nama '.$request->input('namaKelompok').' sudah ada',
+            'namaKelompok.required' => 'Mohon mengisi nama kelompok_pengajar'
         ]);
 
         $kelompok_pengajar->id_tempat_penugasan = $request->input('tempatPenugasan');
@@ -153,6 +152,18 @@ class KelompokPengajarController extends Controller
         }
         return Response::json($pengajar);
      }
+    public function select_pengajar_1_edit(){
+        $peng_id = request()->peng_id;
+        if ($peng_id == -99999999){
+            $pengajar = NULL;
+        }
+        else{
+            $pengajar = Pengajar::where([['id', '!=', $peng_id],
+                ['status_kelulusan', '=', 1]])
+                ->get();
+        }
+        return Response::json($pengajar);
+    }
     public function select_pengajar_2(){
         $peng_id1 = request()->peng_id1;
         $peng_id2 = request()->peng_id2;
@@ -164,6 +175,20 @@ class KelompokPengajarController extends Controller
                 ['id', '!=', $peng_id2],
                 ['status_kelulusan', '=', 1],
                 ['id_kelompok_pengajar', '=', NULL]])
+                ->get();
+        }
+        return Response::json($pengajar);
+    }
+    public function select_pengajar_2_edit(){
+        $peng_id1 = request()->peng_id1;
+        $peng_id2 = request()->peng_id2;
+        if ($peng_id2 == -99999999){
+            $pengajar = NULL;
+        }
+        else{
+            $pengajar = Pengajar::where([['id', '!=', $peng_id1],
+                ['id', '!=', $peng_id2],
+                ['status_kelulusan', '=', 1]])
                 ->get();
         }
         return Response::json($pengajar);

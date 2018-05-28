@@ -16,7 +16,7 @@
                                 <p>Nama Kelompok : {{$kelompok->nama}}</p>
                             </div>
                             <div class="col justify-content-end">
-                                <p>Tempat Penugasan : <a href="kelompok_pengajar/penugasan">{{$kelompok->tempat_penugasan}}</a></p>
+                                <p>Tempat Penugasan : {{$kelompok->penugasan->nama}}</p>
                             </div>
                         </div>
                         <table class="table table-hover font-weight-bold">

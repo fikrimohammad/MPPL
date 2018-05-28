@@ -10,6 +10,7 @@
                     <div class="col justify-content-start">
                         <p>ID Kelompok : KP00{{ $kelompok_pengajar->id }}</p>
                         <p>Nama Kelompok : {{ $kelompok_pengajar->nama }}</p>
+                        <p>Tempat Penugasan : {{ $kelompok_pengajar->penugasan->nama }}</p>
                         <p>Anggota : </p>
                         @foreach($kelompok_pengajar->pengajar as $pengajar)
                             <p>{{++$i}}. {{ $pengajar->nama }}</p>

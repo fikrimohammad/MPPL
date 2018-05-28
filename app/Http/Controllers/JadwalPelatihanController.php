@@ -124,6 +124,7 @@ class JadwalPelatihanController extends Controller
     public function destroy(Jadwal_pelatihan $jadwal_pelatihan)
     {
         $message = "Jadwal pelatihan dengan nama ".$jadwal_pelatihan->nama." berhasil dihapus";
+        $jadwal_pelatihan->materi()->delete();
         $jadwal_pelatihan->delete();
         return redirect()->route('jadwal_pelatihan.index')->with('success', $message);
     }

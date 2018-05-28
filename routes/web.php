@@ -30,20 +30,16 @@ Route::prefix('pengajar')->group(function (){
     Route::post('register','AuthPengajar\RegisterController@register')->name('registerPengajar');
 });
 
-
-
-Route::resource('manage/jadwal_pelatihan','JadwalPelatihanController');
-Route::resource('manage/materi_pelatihan','MateriPelatihanController');
-Route::get('/ajax_kp1', 'KelompokPengajarController@select_pengajar_1');
-Route::get('/ajax_kp2', 'KelompokPengajarController@select_pengajar_2');
-
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth pengajar
 
-
+Route::get('/ajax_kp1', 'KelompokPengajarController@select_pengajar_1');
+Route::get('/ajax_kp1_edit', 'KelompokPengajarController@select_pengajar_1_edit');
+Route::get('/ajax_kp2', 'KelompokPengajarController@select_pengajar_2');
+Route::get('/ajax_kp2_edit', 'KelompokPengajarController@select_pengajar_2_edit');
 // Registration Routes...
 
 // Password Reset Routes...
@@ -81,5 +77,5 @@ Route::prefix('pegawai')->group(function (){
     Route::resource('pengajar','PengajarController')->except([
         'create', 'store'
     ]);
-
+    Route::resource('manage/jadwal_pelatihan','JadwalPelatihanController');
 });

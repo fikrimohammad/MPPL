@@ -131,6 +131,10 @@ class TempatPenugasanController extends Controller
     public function destroy(Tempat_penugasan $tempat_penugasan)
     {
         $message = "Tempat penugasan dengan nama ".$tempat_penugasan->nama." berhasil dihapus";
+        foreach ($tempat_penugasan->kelompok as $kelompok){
+            $kelompok->penugasan()->dissociate($tempat_penugasan);
+            $kelompok->save();
+        }
         $tempat_penugasan->delete();
         return redirect()->route('tempat_penugasan.index')->with('success', $message);
     }

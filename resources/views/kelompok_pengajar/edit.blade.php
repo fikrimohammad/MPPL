@@ -4,7 +4,9 @@
 
         <h4 class="text-center py-3">FORM PENGISIAN KELOMPOK PENGAJAR</h4>
 
-        <form action="{{ route('kelompok_pengajar.store') }}" method="POST">
+        <form action="{{ route('kelompok_pengajar.update', $kelompok_pengajar->id) }}" method="POST">
+            {{csrf_field()}}
+            @method('PUT')
             @if ($message = Session::get('failed'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Whoops!</strong> {{ $message }}
@@ -135,7 +137,7 @@
                     var peng_id = e.target.value
                     // alert(peng_id);
 
-                    $.get('/ajax_kp1?peng_id=' + peng_id, function (data) {
+                    $.get('/ajax_kp1_edit?peng_id=' + peng_id, function (data) {
                         $.each(data, function (index, pengajar) {
                             $('#idPengajar_2').append('<option value="'+pengajar.id+'">'+pengajar.nama+'</option>');
                         })
@@ -155,7 +157,7 @@
                     var peng_id2 = e.target.value
                     // alert(peng_id1 + ' ' + peng_id2);
 
-                    $.get('/ajax_kp2?peng_id1=' + peng_id1 + '&peng_id2=' + peng_id2, function (data) {
+                    $.get('/ajax_kp2_edit?peng_id1=' + peng_id1 + '&peng_id2=' + peng_id2, function (data) {
                         $.each(data, function (index, pengajar) {
                             console.log(data);
                             $('#idPengajar_3').append('<option value="'+pengajar.id+'">'+pengajar.nama+'</option>');
