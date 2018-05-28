@@ -8,6 +8,7 @@ use App\Pengajar;
 use App\Materi_pelatihan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PengajarController extends Controller
 {
@@ -15,7 +16,7 @@ class PengajarController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+      */
     public function index()
     {
         //
@@ -62,31 +63,9 @@ class PengajarController extends Controller
      */
     public function update(Request $request, Pengajar $pengajar)
     {
-        //
-//        $pengajar->nama = $request->input('nama');
-//        $pengajar->tempat_lahir = $request->input('tempat_lahir');
-//        $pengajar->tanggal_lahir = $request->input('tanggal_lahir');
-////        tempat tanggal lahir belum ada
-//        $pengajar->alamat = $request->input('alamat');
-//        $pengajar->agama = $request->input('agama');
-//        $pengajar->no_hp = $request->input('no_hp');
-////        no hp blom ada
-//        $pengajar->email = $request->input('pengajar');
-//        $pengajar->password = bcrypt($request->input('password'));
-////        password belum ada
-//        $pengajar->jenjang_pendidikan_terakhir = $request->input('pendidikan');
-//        $pengajar->nama_institusi_pendidikan = $request->input('namaInstitusiPendidikan');
-//        if($request->hasFile('cv')){
-//            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_cv);
-//            $pengajar->lokasi_penyimpanan_cv = $this->upload($request,'cv');
-//        }
-//        if($request->hasFile('pasFoto')){
-//            Storage::disk('public')->delete($pengajar->lokasi_penyimpanan_pas_foto);
-//            $pengajar->lokasi_penyimpanan_pas_foto = $this->upload($request,'pasFoto');
-//        }
         $pengajar->status_kelulusan = $request->input('status_kelulusan');
         $pengajar->save();
-        return redirect('pegawai/manage-pengajar');
+        return redirect()->route('rekrutmen')->with('message','Berhasil merubah status kelulusan')->with('type','success');
     }
 
     /**
@@ -98,11 +77,13 @@ class PengajarController extends Controller
     public function destroy(Pengajar $pengajar)
     {
         //
+        if(is_null($pengajar))return redirect()->route('rekrutmen')->with('message','Gagal menghapus pengajar')->with('type','error');
         $pengajar->delete();
-        return true;
+        return redirect()->route('rekrutmen')->with('message','Selamat datang')->with('type','success');
     }
 
-    public function viewSeleksi(Pengajar $pengajar){
+    public function viewSeleksi(){
+        $pengajar = Auth::guard('pengajar')->user();
         if($pengajar->status_kelulusan == 1){
             return view('pengajar.lulus');
         }

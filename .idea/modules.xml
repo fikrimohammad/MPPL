@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../bemfkg/.idea/bemfkg.iml" filepath="$PROJECT_DIR$/../bemfkg/.idea/bemfkg.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/mppl.iml" filepath="$PROJECT_DIR$/.idea/mppl.iml" />
     </modules>
   </component>

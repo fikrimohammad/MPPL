@@ -12,11 +12,11 @@ class TempatPenugasanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($message,$type)
     {
         $i = 0;
         $tempat_penugasan = Tempat_penugasan::orderBy('nama', 'asc')->get();
-        return view('tempat_penugasan.index', compact('tempat_penugasan'))->with('i', $i);
+        return view('tempat_penugasan.index', compact('tempat_penugasan'))->with('message',$message)->with('type',$type);
     }
 
     /**
@@ -60,7 +60,7 @@ class TempatPenugasanController extends Controller
 
         $message = "Tempat penugasan dengan nama ".$request->input('nama')." berhasil ditambahkan";
 
-        return redirect()->route('tempat_penugasan.index')->with('success', $message);
+        return $this->index($message,'success');
     }
 
     /**
@@ -119,7 +119,7 @@ class TempatPenugasanController extends Controller
 
         $message = "Tempat penugasan dengan nama ".$request->input('nama')." berhasil diubah";
 
-        return redirect()->route('tempat_penugasan.index')->with('success', $message);
+        return $this->index($message,'success');
     }
 
     /**
@@ -136,6 +136,6 @@ class TempatPenugasanController extends Controller
             $kelompok->save();
         }
         $tempat_penugasan->delete();
-        return redirect()->route('tempat_penugasan.index')->with('success', $message);
+        return $this->index($message,'success');
     }
 }

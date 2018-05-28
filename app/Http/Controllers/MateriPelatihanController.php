@@ -21,10 +21,10 @@ class MateriPelatihanController extends Controller
         $this->middleware('auth:pengajar')->only('download_materi');
     }
 
-    public function index()
+    public function index($message,$type)
     {
         $materi_pelatihan = Materi_pelatihan::all();
-        return view('bagian_pelatihan.materi_pelatihan')->with('materi_pelatihan',$materi_pelatihan);
+        return view('bagian_pelatihan.materi_pelatihan')->with('materi_pelatihan',$materi_pelatihan)->with('message',$message)->with('type',$type);
     }
 
     /**
@@ -54,7 +54,7 @@ class MateriPelatihanController extends Controller
             $materi_pelatihan->lokasi_penyimpanan = $this->upload($request);
         }
         $materi_pelatihan->save();
-        return $this->index();
+        return $this->index('Berhasil menambah materi pelatihan','success');
 
     }
 
@@ -100,7 +100,7 @@ class MateriPelatihanController extends Controller
             $materi_pelatihan->lokasi_penyimpanan = $this->upload($request);
         }
         $materi_pelatihan->save();
-        return redirect()->route('materi_pelatihan.index');
+        return $this->index('Berhasil merubah materi pelatihan','success');
     }
 
     /**
@@ -112,13 +112,13 @@ class MateriPelatihanController extends Controller
     public function destroy(Materi_pelatihan $materi_pelatihan)
     {
         //
-        Storage::disk('local')->delete($materi_pelatihan->lokasi_penyimpanan);
+        Storage::disk('public')->delete($materi_pelatihan->lokasi_penyimpanan);
         $materi_pelatihan->delete();
-        return $this->index();
+        return $this->index('Berhasil merubah materi pelatihan','success');
     }
 
     public function download_materi(Materi_pelatihan $materi_pelatihan){
-        return response()->download($materi_pelatihan->lokasi_penyimpanan);
+        return Storage::download($materi_pelatihan->lokasi_penyimpanan);
     }
 
     private function upload(Request $request){

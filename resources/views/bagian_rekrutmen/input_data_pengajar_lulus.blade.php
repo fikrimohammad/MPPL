@@ -3,8 +3,17 @@
         <div class="container">
 
             <h4 class="text-center py-3">LIST PENGAJAR LULUS</h4>
-
-            
+            @if(isset($message))
+                @if($type == 'error')
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Error! </strong> {{$message}}
+                    </div>
+                @elseif($type == 'success')
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Success! </strong> {{$message}}
+                    </div>
+                    @endif
+                @endif
             <form action="input_data_pengajar_lulus_process.php" method="POST"> 
                 <div class="row pb-2 justify-content-center">
                     <div class="col-sm-8 mx-5 text-center">
@@ -21,10 +30,9 @@
                                     <th scope="row">PENG000{{ $peng->id }}</th>
                                     <td>{{$peng->nama}}</td>
                                     <td>
-                                        @if($peng->status_kelulusan == 1)
+                                        @if ($peng->status_kelulusan == 1)
                                             Lulus
-                                        @else
-                                            Tidak Lulus
+                                        @else Tidak Lulus
                                         @endif
                                     </td>
                                     <td>

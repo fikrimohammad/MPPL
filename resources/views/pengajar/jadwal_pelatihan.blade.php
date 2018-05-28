@@ -3,7 +3,6 @@
     <div class="container">
 
         <h4 class="text-center py-3">JADWAL PELATIHAN</h4>
-
         <div class="row pb-2 justify-content-center">
             <div class="col-sm-8 mx-5 text-center">
                 @if ($message = Session::get('success'))
